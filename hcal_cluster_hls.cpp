@@ -12,7 +12,7 @@ ap_uint<8> disc_cluster(cluster_t ac, ap_uint<16> cluster_threshold)
 }
 
 // hcal_cluster_hls:
-// - hit_dt: maximum time difference (in +/-4ns ticks) from seed hit required to accept adjacent spacial hit into cluster
+// - hit_dt: maximum time difference (in +/-4ns ticks) from seed hit required to accept adjacent spacial hit into cluster 
 // - seed_threshold: minimum hit energy required for central hit of cluster position to allow a cluster to be formed
 // - cluster_threshold: mimimum cluster energy required to generate a trigger
 // - s_fadc_hits: FADC hit stream input (from VXS and fiber) of all fadc hits that can be used to perform cluster finding from the current frame
@@ -65,7 +65,6 @@ void hcal_cluster_hls(
          nearby_hit_pre[ipos+1]=all_fadc_hits_pre_pre[nearby_ch]
          nearby_hit_cur[ipos+1]=all_fadc_hits_pre[nearby_ch]
          nearby_hit_aft[ipos+1]=all_fadc_hits[nearby_ch]
-
        }
       
 
@@ -153,67 +152,46 @@ int Find_nearby(ap_uint<9> ch, ap_uint<3> pos){
 
 }
 
-ap_uint<1> hit_coin(ap_uint<4> t1, ap_uint<4> t2, ap_uint<4> dt) {
+ap_uint<1> hit_coin_t(ap_uint<4> t1, ap_uint<4> t2, ap_uint<3> dt) {
   ap_uint<4> diff = (t1<t2) ? (t2-t1) : (t1-t2);
   return (diff<=dt) ? 1 : 0;
 }
 
 cluster_t Find_cluster(
-    hit_t prehits[7], hit_t curhits[7],
+    hit_t prehits[9], hit_t curhits[9], hit_t afthits[9]
     ap_uint<3> hit_dt, ap_uint<13> seed_threshold,
     ap_uint<5> x, ap_uint<4> y
   ){
-     ap_uint<4> t = 0;
-     ap_uint<13> e_array[7];
-     ap_uint<7> hits = 0;
+    ap_uint<4> t0 = 0;
+    ap_uint<13> e_array[7];
+    int hits[8] = 0;
 
-     if(prehits[0].e>=seed_threshold && prehits[0].t>=4){
-       t = prehits[0].t;    // map pre time 4 to 7 -> 4 to 7 (unchanged)
-       e_array[0] = prehits[0].e;
-       hits[0] = 1;
-     }
-     else if(curhits[0].e>=seed_threshold && curhits[0].t<4){
-       t = curhits[0].t+8;  // map cur time 0 to 3 -> 8 to 11 (move to time after pre hit window)
-       e_array[0] = curhits[0].e;
-       hits[0] = 1;
-     }
-     
+    if( curhits[0].e<seed_threshold ) return NULL;
+    t0 = curhits[0].t;
+    e0 = curhits[0].e
 
-     for(int ii=1; ii<7; ii++){
-       e_array[ii] = 0;
+   
+    for(int ii=1; ii<9; ii++){
+        if( curhits[ii].e>0 && hit_coin_t(t0, curhits[ii].t, hit_dt) ){
+            if(curhits[ii].e > e0) return NULL;
+            nhits[ii] = nhits[ii]+1;
+        }
 
-       if(curhits[ii].e && hit_coin(t, 8+curhits[ii].t, hit_dt))
-       {
-         e_array[ii] = curhits[ii].e;
-         hits[ii] = 1;
-       }
+        if( prehits[ii].e>0 && hit_coin_t(t0+8, prehits[ii].t, hit_dt) ){
+            if(prehits[ii].e > e0) return NULL;
+            nhits[ii] = nhits[ii]+1;
+        }
 
-       if(prehits[ii].e && hit_coin(t, prehits[ii].t, hit_dt))
-       {
-         e_array[ii] = prehits[ii].e;
-         hits[ii] = 1;
-       }
+        if( afthits[ii].e && hit_coin_t(t0, afthits[ii].t+8, hit_dt) ){
+            if(afthits[ii].e > e0) return NULL;
+            nhits[ii] = nhits[ii]+1
+        }
 
-       if(e_array[ii] >= e_array[0])
-         hits[0] = 0;
-     }
+        if(nhits[ii]>0)
+          hits_array[ii]=1
+    }  
 
-     cluster_t cc;
-     cc.e = 0;
-     cc.nhits = 0;
-     cc.t=0;
-     cc.x = x;
-     cc.y = y;
-     if(hits[0])
-     {
-       cc.t = t-4;  // map time 4 to 11 -> 0 to 7
-       for(int ii=0; ii<7; ii++)
-       {
-         cc.e += e_array[ii];
-         cc.nhits += hits[ii];
-       }
-     }
-     return cc;
+    return hits_array;
 
 }
 

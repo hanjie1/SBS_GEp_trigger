@@ -89,6 +89,15 @@ int Find_channel(ap_uint<5> nx, ap_uint<5> ny);
 int Find_nearby(ap_uint<8> ch, ap_uint<3> ii);
 cluster_t Find_cluster(hit_t prehits[7], hit_t curhits[7], ap_uint<3> hit_dt, ap_uint<13> seed_threshold, ap_uint<5> x, ap_uint<4> y);
 
+
+typedef struct
+{
+  hit_t prehits[8];
+  hit_t curhits[8];
+  hit_t afthits[8];
+} coin_hits;
+
+
 typedef struct{
    ap_uint<5> nx;
    ap_uint<4> ny;
