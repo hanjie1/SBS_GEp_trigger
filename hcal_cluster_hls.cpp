@@ -78,7 +78,7 @@ void hcal_cluster_hls(
 
 #ifndef __SYNTHESIS__
   int nclust = 0;
-  for(int ch=0; ch<N_CHAN_SEC;ch++){
+  for(int ch=0; ch<288;ch++){
     if(allc.c[ch].nhits>1)
       nclust++;
       //printf("nclust %d at (%d, %d), e=%d, t=%d\n",nclust,allc.c[ch].x.to_uint(),allc.c[ch].y.to_uint(),allc.c[ch].e.to_uint(),allc.c[ch].t.to_uint());
@@ -87,18 +87,23 @@ void hcal_cluster_hls(
 #endif
 
   s_cluster_all.write(allc);
+  fiber_bins_t allf;
 
-  for(int ii=0; ii<N_CHAN_SEC;ii++){
-     ac_disc[ii]=disc_cluster(allc.c[ii],cluster_threshold); 
+  for(int ii=0; ii<128; ii++){
+      allf.bins[ii].t=0;
+      allf.bins[ii].valid=0;
+  }
+
+  for(int ii=0; ii<288;ii++){
+     if( allc.c[ii].e>cluster_threshold ){
+         fiber_bin = fiber_map[ii];
+         
+         allf.bins[fiber_bin].t = allc.c[ii].t
+         allf.bins[fiber_bin].valid = 1
+
+     }
   }
   
-  // 'or' together result from all channels, for each possible 4ns time bin
-  for(int ii=0;ii<N_CHAN_SEC;ii++)
-    trigger.trig |= ac_disc[ii];
-  
-  // write trigger result
-  s_trigger.write(trigger);
-
   return;
 }
 
@@ -162,36 +167,55 @@ cluster_t Find_cluster(
     ap_uint<3> hit_dt, ap_uint<13> seed_threshold,
     ap_uint<5> x, ap_uint<4> y
   ){
-    ap_uint<4> t0 = 0;
-    ap_uint<13> e_array[7];
-    int hits[8] = 0;
-
-    if( curhits[0].e<seed_threshold ) return NULL;
-    t0 = curhits[0].t;
-    e0 = curhits[0].e
-
+    cluster_t cc;
+    cc.e=0
+    cc.t=0
+    cc.nhits=0
+    cc.x=x
+    cc.y=y
    
+    if( curhits[0].e<seed_threshold ) return cc;
+
+    ap_uint<4> t0 = 0;
+    int nhits[9] = {1,0,0,0,0,0,0,0,0};
+
+    t0 = curhits[0].t;
+    e0 = curhits[0].e;
+    ap_uint<16> total_e=e0;
+
     for(int ii=1; ii<9; ii++){
         if( curhits[ii].e>0 && hit_coin_t(t0, curhits[ii].t, hit_dt) ){
-            if(curhits[ii].e > e0) return NULL;
+            if(curhits[ii].e > e0) return cc;
             nhits[ii] = nhits[ii]+1;
+            total_e = total_e + curhits[ii].e; 
         }
 
         if( prehits[ii].e>0 && hit_coin_t(t0+8, prehits[ii].t, hit_dt) ){
-            if(prehits[ii].e > e0) return NULL;
+            if(prehits[ii].e > e0) return cc;
             nhits[ii] = nhits[ii]+1;
+            total_e = total_e + prehits[ii].e; 
         }
 
         if( afthits[ii].e && hit_coin_t(t0, afthits[ii].t+8, hit_dt) ){
-            if(afthits[ii].e > e0) return NULL;
-            nhits[ii] = nhits[ii]+1
+            if(afthits[ii].e > e0) return cc;
+            nhits[ii] = nhits[ii]+1;
+            total_e = total_e + afthits[ii].e; 
         }
 
         if(nhits[ii]>0)
-          hits_array[ii]=1
+          nhits[0] = nhits[0]+nhits[ii];
+        
     }  
 
-    return hits_array;
+    if(nhits[0]>0){
+       cc.e = total_e;
+       cc.t = t0;
+       cc.nhits = nhits[0];
+       cc.x = x;
+       cc.y = y;
+    } 
+
+    return cc;
 
 }
 
