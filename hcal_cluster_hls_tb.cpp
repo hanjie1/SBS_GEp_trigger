@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ecal_cluster_hls.h"
+#include "hcal_cluster_hls.h"
+
+fadc_hits_t GenRandomClusters(){
+  // generate a random list seed
+  // generate a random cluster around each seed 
+  // generate a random non cluster hits around some of the seed
+  // record each cluster and the fiber output
+
+}
 
 int main(int argc, char *argv[])
 {
@@ -8,25 +16,21 @@ int main(int argc, char *argv[])
   ap_uint<13> seed_threshold = 5000;
   ap_uint<16> cluster_threshold = 10000;
   hls::stream<fadc_hits_t> s_fadc_hits;
-  hls::stream<trigger_t> s_trigger, s_trigger_verify;
   hls::stream<cluster_all_t> s_cluster_all;
 
   srand(10);
 
   // generate some random FADC hits
   fadc_hits_t fadc_hits;
-  trigger_t trigger;
 
-  for(int ch=0; ch<N_CHAN_SEC; ch++){
+  for(int ch=0; ch<256; ch++){
       fadc_hits.vxs_ch[ch].e = 0;
       fadc_hits.vxs_ch[ch].t = 0;
+  }
 
-      if(ch<32){
-        fadc_hits.fiber_ch_l[ch].e = 0;
-        fadc_hits.fiber_ch_l[ch].t = 0;
-        fadc_hits.fiber_ch_r[ch].e = 0;
-        fadc_hits.fiber_ch_r[ch].t = 0;
-      }
+  for(int ch=0; ch<32; ch++){
+      fadc_hits.fiber_ch[ch].e = 0;
+      fadc_hits.fiber_ch[ch].t = 0;
   }
 
   fadc_hits.vxs_ch[5].e=3000;

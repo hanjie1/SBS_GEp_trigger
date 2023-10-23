@@ -14,7 +14,6 @@ typedef struct
   ap_uint<3> t;
 } hit_t;
 
-
 // fadc_hits_t:
 // - contains 256 VXS channels worth + 32 fiber of hit_t reported each 32ns
 // - vxs_ch[  0] to vxs_ch[ 15]: VME slot 3, ch 0 to 15 FADC channels
@@ -39,6 +38,7 @@ typedef struct
   ap_uint<3> t;
   ap_uint<1> valid;
 } bin_t;
+
 typedef struct
 {
   bin_t bins[128];
@@ -60,7 +60,6 @@ typedef struct
   ap_uint<4>  nhits;
 } cluster_t;
 
-
 typedef struct
 {
   cluster_t c[288];
@@ -71,24 +70,17 @@ void hcal_cluster_hls(
     ap_uint<13> seed_threshold,
     ap_uint<16> cluster_threshold,
     hls::stream<fadc_hits_t> &s_fadc_hits,
-    hls::stream<fiber_bins_t &s_fiberout,
+    hls::stream<fiber_bins_t> &s_fiberout,
     hls::stream<cluster_all_t> &s_cluster_all
 );
 
+fiber_bins_t FiberOut(cluster_t allc, ap_uint<16> cluster_threshold);
+ap_uint<5> Find_block(ap_uint<9> ch, ap_uint<1> dim);
 
-ap_uint<5> Find_block(ap_uint<8> ch, ap_uint<2> dim);
-int Find_channel(ap_uint<5> nx, ap_uint<5> ny);
-int Find_nearby(ap_uint<8> ch, ap_uint<3> ii);
-cluster_t Find_cluster(hit_t prehits[7], hit_t curhits[7], ap_uint<3> hit_dt, ap_uint<13> seed_threshold, ap_uint<5> x, ap_uint<4> y);
-
-
-typedef struct
-{
-  hit_t prehits[8];
-  hit_t curhits[8];
-  hit_t afthits[8];
-} coin_hits;
-
+int Find_channel(ap_uint<5> nx, ap_uint<4> ny);
+int Find_nearby(ap_uint<9> ch, ap_uint<3> ii);
+ap_uint<1> hit_coin_t(ap_uint<4> t1, ap_uint<4> t2, ap_uint<3> dt);
+cluster_t Find_cluster(hit_t prehits[9], hit_t curhits[9], hit_t afthits[9], ap_uint<3> hit_dt, ap_uint<13> seed_threshold, ap_uint<5> x, ap_uint<4> y);
 
 typedef struct{
    ap_uint<5> nx;

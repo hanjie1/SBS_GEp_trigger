@@ -1,16 +1,5 @@
 #include "hcal_cluster_hls.h"
 
-ap_uint<8> disc_cluster(cluster_t ac, ap_uint<16> cluster_threshold)
-{
-  ap_uint<8> result = 0;
-
-  // discriminate and report correct 4ns time bin that threshold crossing happened
-  if(ac.e >= cluster_threshold)
-    result[ac.t] = 1;
-
-  return result;
-}
-
 // hcal_cluster_hls:
 // - hit_dt: maximum time difference (in +/-4ns ticks) from seed hit required to accept adjacent spacial hit into cluster 
 // - seed_threshold: minimum hit energy required for central hit of cluster position to allow a cluster to be formed
@@ -23,7 +12,7 @@ void hcal_cluster_hls(
     ap_uint<13> seed_threshold,
     ap_uint<16> cluster_threshold,
     hls::stream<fadc_hits_t> &s_fadc_hits,
-    hls::stream<fiber_bins_t &s_fiberout,
+    hls::stream<fiber_bins_t> &s_fiberout,
     hls::stream<cluster_all_t> &s_cluster_all
   )
 {
@@ -45,8 +34,6 @@ void hcal_cluster_hls(
   for(int ch=0; ch<32; ch++)
       all_fadc_hits[ch+256] = fadc_hits.fiber_ch[ch];
 
-  ap_uint<8> ac_disc[N_CHAN_SEC];
-  trigger_t trigger = {0};
   cluster_all_t allc;
   
   for(int ch=0; ch<288;ch++){
@@ -87,6 +74,13 @@ void hcal_cluster_hls(
 #endif
 
   s_cluster_all.write(allc);
+  s_fiberout = FiberOut(allc, cluster_threshold);
+  
+  return;
+}
+
+fiber_bins_t FiberOut(cluster_t allc, ap_uint<16> cluster_threshold){
+
   fiber_bins_t allf;
 
   for(int ii=0; ii<128; ii++){
@@ -97,14 +91,20 @@ void hcal_cluster_hls(
   for(int ii=0; ii<288;ii++){
      if( allc.c[ii].e>cluster_threshold ){
          fiber_bin = fiber_map[ii];
-         
-         allf.bins[fiber_bin].t = allc.c[ii].t
-         allf.bins[fiber_bin].valid = 1
+       
+         ap_uint<3> newt=0; 
+         if(allf.bins[fiber_bin].valid==1)
+            newt = (allf.bins[fiber_bin].t>allc.c[ii].t)?allc.c[ii].t:allf.bins[fiber_bin].t;
+         else:
+            newt = allc.c[ii].t;
+         allf.bins[fiber_bin].t = newt;
+         allf.bins[fiber_bin].valid = 1;
 
      }
   }
-  
-  return;
+
+  return allf;
+
 }
 
 // for a given channel number, return the nx and ny of the channel map 
