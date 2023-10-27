@@ -74,7 +74,9 @@ void hcal_cluster_hls(
 #endif
 
   s_cluster_all.write(allc);
-  s_fiberout = FiberOut(allc, cluster_threshold);
+  fiber_bins_t fiberout;
+  fiberout = FiberOut(allc, cluster_threshold);
+  s_fiberout.write(fiberout);
   
   return;
 }
