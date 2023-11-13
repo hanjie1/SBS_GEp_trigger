@@ -43,6 +43,9 @@ cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_
   ap_uint<4> tot = 1;
   ap_uint<13> tot_e = seed_e;
 
+  int hit_pos_x=0;
+  int hit_pos_y=0;
+
   for(int ii=0; ii<nhits; ii++){
    int nblock = rand()%8;
    switch(nblock){
@@ -74,7 +77,7 @@ cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_
    if(hit_pos_x==0 || hit_pos_x>24 || hit_pos_y==0 || hit_pos_y>12)
      continue;
    
-   hit_ch = (hit_pos_x-1)*12 + hit_pos_y-1 ;
+   int hit_ch = (hit_pos_x-1)*12 + hit_pos_y-1 ;
 
    ap_uint<13> ee = rand()%seed_threshold;
    int dt = rand()%(2*hit_dt)-hit_dt;
@@ -149,13 +152,13 @@ int main(int argc, char *argv[])
       fadc_hits_t new_hits;
       
       for(int ii=0; ii<256; ii++){
-         new_hits.vxs_ch[ii].e=0
-         new_hits.vxs_ch[ii].t=0
+         new_hits.vxs_ch[ii].e=0;
+         new_hits.vxs_ch[ii].t=0;
       }
 
       for(int ii=0; ii<32; ii++){
-         new_hits.fiber_ch[ii].e=0
-         new_hits.fiber_ch[ii].t=0
+         new_hits.fiber_ch[ii].e=0;
+         new_hits.fiber_ch[ii].t=0;
       }
 
       for(int ii=0; ii<128; ii++){
@@ -171,7 +174,7 @@ int main(int argc, char *argv[])
           ap_uint<13> ee = rand()%seed_threshold;
           ap_uint<3> tt = rand()%8;
 
-          if(seed_ch<256){
+          if(rd_ch<256){
              new_hits.vxs_ch[rd_ch].e = ee;
              new_hits.vxs_ch[rd_ch].t = tt;
           }
@@ -184,13 +187,13 @@ int main(int argc, char *argv[])
       if(frame>=2){
          // generate one cluster 
          cluster_t newcc;
-         newcc=GenRandomClusters(seed_threshold, hit_dt, fadc_hits_t &pre_pre_hits, fadc_hits_t &pre_hits, fadc_hits_t &new_hits);
+         newcc=GenRandomClusters(seed_threshold, hit_dt, pre_pre_hits, pre_hits, new_hits);
          if(newcc.e>cluster_threshold){
-           cc_ch = (newcc.x-1)*12 + newcc.y-1 ;
+           int cc_ch = (newcc.x-1)*12 + newcc.y-1 ;
            ap_uint<7> cc_fbin = fiber_map[cc_ch];
 
          // record each cluster and the fiber output
-           newt = newcc.t + (frame-1)*8;
+           int newt = newcc.t + (frame-1)*8;
            if(fbin_verify[frame].bins[cc_fbin].valid==1){
               if( newt<fbin_verify[frame].bins[cc_fbin].t )
                   fbin_verify[frame].bins[cc_fbin].t = newt;
@@ -201,7 +204,7 @@ int main(int argc, char *argv[])
            fbin_verify[frame].bins[cc_fbin].valid = 1;           
            c_verify[frame].c[cc_ch] = newcc;
 
-           printf("Cluster: chan %d, frame %d, (x,y,e,t,n)=(%d, %d, %d, %d, %d)\n ",cc_ch,nframe,newcc.x,newcc.y,newcc.e,newcc.t,newcc.nhits);
+           printf("Cluster: chan %d, frame %d, (x,y,e,t,n)=(%d, %d, %d, %d, %d)\n ",cc_ch,frame,newcc.x,newcc.y,newcc.e,newcc.t,newcc.nhits);
          }
       }
       
@@ -215,7 +218,7 @@ int main(int argc, char *argv[])
   
   while(!s_fadc_hits.empty())
   {
-    ecal_cluster_hls(
+    hcal_cluster_hls(
         hit_dt,
         seed_threshold,
         cluster_threshold,
@@ -230,10 +233,10 @@ int main(int argc, char *argv[])
   while(!s_fiberout.empty()){
     fiber_bins_t fout = s_fiberout.read();
     for(int ii=0; ii<128; ii++){
-        ft_s = fbin_verify[nframe].bins[ii].t;
-        fv_s = fbin_verify[nframe].bins[ii].valid;
-        ft_r = fout.bins[ii].t + (nframe-1)*8;
-        fv_r = fout.bins[ii].valid;
+        int ft_s = fbin_verify[nframe].bins[ii].t;
+        int fv_s = fbin_verify[nframe].bins[ii].valid;
+        int ft_r = fout.bins[ii].t + (nframe-1)*8;
+        int fv_r = fout.bins[ii].valid;
 
         if(fv_r != fv_s)
            printf("Fiber Fail: bin %d, frame %d, valid, (set, return)=(%d, %d)\n ",ii,nframe,fv_s,fv_r);
@@ -248,7 +251,7 @@ int main(int argc, char *argv[])
   nframe=0;
   while(!s_cluster_all.empty()){
     cluster_all_t cout = s_cluster_all.read();
-    c_s = c_verify[nframe];
+    cluster_all_t c_s = c_verify[nframe];
     for(int ii=0; ii<288; ii++){
        if( cout.c[ii].x != c_s.c[ii].x )
            printf("Cluster Fail: chan %d, frame %d, x, (set, return)=(%d, %d)\n ",ii,nframe,c_s.c[ii].x,cout.c[ii].x);

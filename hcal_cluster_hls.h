@@ -35,14 +35,14 @@ typedef struct
 
 typedef struct
 {
-  ap_uint<3> t;
-  ap_uint<1> valid;
+  ap_uint<3> t;
+  ap_uint<1> valid;
 } bin_t;
 
 typedef struct
 {
-  bin_t bins[128];
-} fiber_bins_t;
+  bin_t bins[128];
+} fiber_bins_t;
 
 
 // cluster_t:

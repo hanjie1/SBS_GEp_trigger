@@ -18,14 +18,14 @@ void hcal_cluster_hls(
 {
   fadc_hits_t fadc_hits = s_fadc_hits.read();
 
-#ifndef __SYNTHESIS__  
-  // Initialize for simulation only (creates a problem for synthesis scheduling)
-  static hit_t all_fadc_hits_pre_pre = {{{0,0}},{{0,0}}};
-  static hit_t all_fadc_hits_pre = {{{0,0}},{{0,0}}};
-#else
-  static hit_t all_fadc_hits_pre_pre;
-  static hit_t all_fadc_hits_pre;
-#endif
+//#ifndef __SYNTHESIS__  
+//  // Initialize for simulation only (creates a problem for synthesis scheduling)
+//  static hit_t all_fadc_hits_pre_pre[288] = {{{0,0}},{{0,0}}};
+//  static hit_t all_fadc_hits_pre = {{{0,0}},{{0,0}}};
+//#else
+  static hit_t all_fadc_hits_pre_pre[288];
+  static hit_t all_fadc_hits_pre[288];
+//#endif
 
   hit_t all_fadc_hits[288];
   for(int ch=0; ch<256; ch++)
@@ -41,17 +41,17 @@ void hcal_cluster_hls(
       hit_t nearby_hit_cur[9];
       hit_t nearby_hit_aft[9];
   
-      nearby_hit_pre[0] = all_fadc_hits_pre_pre[ch]
-      nearby_hit_cur[0] = all_fadc_hits_pre[ch]
-      nearby_hit_aft[0] = all_fadc_hits[ch]
+      nearby_hit_pre[0] = all_fadc_hits_pre_pre[ch];
+      nearby_hit_cur[0] = all_fadc_hits_pre[ch];
+      nearby_hit_aft[0] = all_fadc_hits[ch];
    
       for(int ipos=0; ipos<8; ipos++){
          int nearby_ch = Find_nearby(ch, ipos);
          if(nearby_ch<0) continue;
 
-         nearby_hit_pre[ipos+1]=all_fadc_hits_pre_pre[nearby_ch]
-         nearby_hit_cur[ipos+1]=all_fadc_hits_pre[nearby_ch]
-         nearby_hit_aft[ipos+1]=all_fadc_hits[nearby_ch]
+         nearby_hit_pre[ipos+1]=all_fadc_hits_pre_pre[nearby_ch];
+         nearby_hit_cur[ipos+1]=all_fadc_hits_pre[nearby_ch];
+         nearby_hit_aft[ipos+1]=all_fadc_hits[nearby_ch];
        }
       
 
@@ -60,8 +60,10 @@ void hcal_cluster_hls(
   }
      
   // save the previous fadc_hits
-  all_fadc_hits_pre_pre = all_fadc_hits_pre;
-  all_fadc_hits_pre = all_fadc_hits;
+  for(int ch=0; ch<288; ch++){
+     all_fadc_hits_pre_pre[ch] = all_fadc_hits_pre[ch];
+     all_fadc_hits_pre[ch] = all_fadc_hits[ch];
+  }
 
 #ifndef __SYNTHESIS__
   int nclust = 0;
@@ -75,13 +77,13 @@ void hcal_cluster_hls(
 
   s_cluster_all.write(allc);
   fiber_bins_t fiberout;
-  fiberout = FiberOut(allc, cluster_threshold);
+  //fiberout = FiberOut(allc, cluster_threshold);
   s_fiberout.write(fiberout);
   
   return;
 }
 
-fiber_bins_t FiberOut(cluster_t allc, ap_uint<16> cluster_threshold){
+fiber_bins_t FiberOut(cluster_all_t allc, ap_uint<16> cluster_threshold){
 
   fiber_bins_t allf;
 
@@ -92,12 +94,12 @@ fiber_bins_t FiberOut(cluster_t allc, ap_uint<16> cluster_threshold){
 
   for(int ii=0; ii<288;ii++){
      if( allc.c[ii].e>cluster_threshold ){
-         fiber_bin = fiber_map[ii];
+         ap_uint<7> fiber_bin = fiber_map[ii];
        
          ap_uint<3> newt=0; 
          if(allf.bins[fiber_bin].valid==1)
             newt = (allf.bins[fiber_bin].t>allc.c[ii].t)?allc.c[ii].t:allf.bins[fiber_bin].t;
-         else:
+         else
             newt = allc.c[ii].t;
          allf.bins[fiber_bin].t = newt;
          allf.bins[fiber_bin].valid = 1;
@@ -122,6 +124,8 @@ ap_uint<5> Find_block(ap_uint<9> ch, ap_uint<1> dim){
     case 1: return ny;
   }
 
+  return 0;
+
 }
 
 // for a given (x,y), return the channel number
@@ -134,7 +138,7 @@ int Find_channel(ap_uint<5> nx, ap_uint<4> ny){
   for(int ich=0;ich<288;ich++){
       if( (block_map[ich].nx==nx) && (block_map[ich].ny==ny) )
 	   ch = ich;
-           return ch
+           return ch;
   }
 
   return ch;
@@ -157,6 +161,7 @@ int Find_nearby(ap_uint<9> ch, ap_uint<3> pos){
        case 7: return Find_channel(nx+1, ny+1); // bottom right
      }
 
+     return -1;
 }
 
 ap_uint<1> hit_coin_t(ap_uint<4> t1, ap_uint<4> t2, ap_uint<3> dt) {
@@ -165,20 +170,21 @@ ap_uint<1> hit_coin_t(ap_uint<4> t1, ap_uint<4> t2, ap_uint<3> dt) {
 }
 
 cluster_t Find_cluster(
-    hit_t prehits[9], hit_t curhits[9], hit_t afthits[9]
+    hit_t prehits[9], hit_t curhits[9], hit_t afthits[9],
     ap_uint<3> hit_dt, ap_uint<13> seed_threshold,
     ap_uint<5> x, ap_uint<4> y
   ){
     cluster_t cc;
-    cc.e=0
-    cc.t=0
-    cc.nhits=0
-    cc.x=x
-    cc.y=y
+    cc.e=0;
+    cc.t=0;
+    cc.nhits=0;
+    cc.x=x;
+    cc.y=y;
    
     if( curhits[0].e<seed_threshold ) return cc;
 
     ap_uint<4> t0 = 0;
+    ap_uint<13> e0=0; 
     int nhits[9] = {1,0,0,0,0,0,0,0,0};
 
     t0 = curhits[0].t;
