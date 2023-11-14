@@ -7,7 +7,7 @@ cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_
   cluster_t cc;
 
   // generate a seed
-  int seed_ch = rand()%288;
+  ap_uint<9> seed_ch = rand()%288;
   ap_uint<13> seed_e = rand()%8192 + seed_threshold;
   ap_uint<3> seed_t = rand()%8;
 
@@ -39,12 +39,12 @@ cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_
    | 5 | 6 | 7 |
    |---|---|---|
 */
-  int nhits = rand()%8;
+  ap_uint<3> nhits = rand()%8;
   ap_uint<4> tot = 1;
   ap_uint<13> tot_e = seed_e;
 
-  int hit_pos_x=0;
-  int hit_pos_y=0;
+  ap_uint<5> hit_pos_x=0;
+  ap_uint<4> hit_pos_y=0;
 
   for(int ii=0; ii<nhits; ii++){
    int nblock = rand()%8;
@@ -77,7 +77,7 @@ cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_
    if(hit_pos_x==0 || hit_pos_x>24 || hit_pos_y==0 || hit_pos_y>12)
      continue;
    
-   int hit_ch = (hit_pos_x-1)*12 + hit_pos_y-1 ;
+   ap_uint<9> hit_ch = (hit_pos_x-1)*12 + hit_pos_y-1 ;
 
    ap_uint<13> ee = rand()%seed_threshold;
    int dt = rand()%(2*hit_dt)-hit_dt;
@@ -189,7 +189,7 @@ int main(int argc, char *argv[])
          cluster_t newcc;
          newcc=GenRandomClusters(seed_threshold, hit_dt, pre_pre_hits, pre_hits, new_hits);
          if(newcc.e>cluster_threshold){
-           int cc_ch = (newcc.x-1)*12 + newcc.y-1 ;
+           ap_uint<9> cc_ch = (newcc.x-1)*12 + newcc.y-1 ;
            ap_uint<7> cc_fbin = fiber_map[cc_ch];
 
          // record each cluster and the fiber output

@@ -74,11 +74,11 @@ void hcal_cluster_hls(
     hls::stream<cluster_all_t> &s_cluster_all
 );
 
-fiber_bins_t FiberOut(cluster_t allc, ap_uint<16> cluster_threshold);
+fiber_bins_t FiberOut(cluster_all_t allc, ap_uint<16> cluster_threshold);
 ap_uint<5> Find_block(ap_uint<9> ch, ap_uint<1> dim);
 
-int Find_channel(ap_uint<5> nx, ap_uint<4> ny);
-int Find_nearby(ap_uint<9> ch, ap_uint<3> ii);
+ap_uint<9> Find_channel(ap_uint<5> nx, ap_uint<4> ny);
+ap_uint<9> Find_nearby(ap_uint<9> ch, ap_uint<3> ii);
 ap_uint<1> hit_coin_t(ap_uint<4> t1, ap_uint<4> t2, ap_uint<3> dt);
 cluster_t Find_cluster(hit_t prehits[9], hit_t curhits[9], hit_t afthits[9], ap_uint<3> hit_dt, ap_uint<13> seed_threshold, ap_uint<5> x, ap_uint<4> y);
 
