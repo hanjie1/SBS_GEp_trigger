@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "hcal_cluster_hls.h"
-
+/*
 cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_hits_t &a_cluster_pre, fadc_hits_t &a_cluster_cur, fadc_hits_t &a_cluster_aft){
 
   cluster_t cc;
@@ -28,7 +28,7 @@ cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_
   cc.t = seed_t;
   
   // generate a random cluster around each seed 
-
+*/
 // 3*3 clusters
 /*
    |---|---|---|
@@ -39,6 +39,7 @@ cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_
    | 5 | 6 | 7 |
    |---|---|---|
 */
+/*
   ap_uint<3> nhits = rand()%8;
   ap_uint<4> tot = 1;
   ap_uint<13> tot_e = seed_e;
@@ -131,7 +132,7 @@ cluster_t GenRandomClusters(ap_uint<13> seed_threshold, ap_uint<3> hit_dt, fadc_
 
   return cc;  
 }
-
+*/
 int main(int argc, char *argv[])
 {
   ap_uint<3> hit_dt = 2;
@@ -183,7 +184,7 @@ int main(int argc, char *argv[])
              new_hits.vxs_ch[rd_ch-256].t = tt;
           }
       }
-
+/*
       if(frame>=2){
          // generate one cluster 
          cluster_t newcc;
@@ -207,6 +208,7 @@ int main(int argc, char *argv[])
            printf("Cluster: chan %d, frame %d, (x,y,e,t,n)=(%d, %d, %d, %d, %d)\n ",cc_ch,frame,newcc.x,newcc.y,newcc.e,newcc.t,newcc.nhits);
          }
       }
+*/
       
       if(frame>0){
          pre_pre_hits = pre_hits;
@@ -229,6 +231,7 @@ int main(int argc, char *argv[])
   }
 
   // verify the fiber out
+/*
   int nframe=0;
   while(!s_fiberout.empty()){
     fiber_bins_t fout = s_fiberout.read();
@@ -266,6 +269,7 @@ int main(int argc, char *argv[])
     } 
     nframe++;
   }
+*/
 
   return 0;
 }
