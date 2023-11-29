@@ -139,7 +139,12 @@ void generate_clusters(){
 
     fadc_hits_t pre_pre_hits;
     fadc_hits_t pre_hits;
-    for(int frame=0; frame<6; frame++){
+
+    ofstream outfile_c("data/gen_clusters.txt");
+    ofstream outfile_f("data/gen_fibers.txt");
+
+    int nframe=6;
+    for(int frame=0; frame<nframe; frame++){
         fadc_hits_t new_hits;
 
         for(int ii=0; ii<256; ii++){
@@ -169,32 +174,67 @@ void generate_clusters(){
           }
       }
 
-      
-
       if(frame>=2){
          // generate one cluster 
          cluster_t newcc;
+
          newcc=GenRandomClusters(pre_pre_hits, pre_hits, new_hits);
+
          if(newcc.e>cluster_threshold){
            int cc_ch = (newcc.x-1)*12 + newcc.y-1 ;
            int cc_fbin = fiber_map[cc_ch];
 
          // record each cluster and the fiber output
            int newt = newcc.t + (frame-1)*8;
-           if(fbin_verify[frame].bins[cc_fbin].valid==1){
-              if( newt<fbin_verify[frame].bins[cc_fbin].t )
-                  fbin_verify[frame].bins[cc_fbin].t = newt;
-           }
-           else
-              fbin_verify[frame].bins[cc_fbin].t = newt;
-        
-           fbin_verify[frame].bins[cc_fbin].valid = 1;           
-           c_verify[frame].c[cc_ch] = newcc;
-
-           printf("Cluster: chan %d, frame %d, (x,y,e,t,n)=(%d, %d, %d, %d, %d)\n ",cc_ch,frame,newcc.x,newcc.y,newcc.e,newcc.t,newcc.nhits);
+           outfile_c<<frame<<" "<<cc_ch<<" "<<" "<<newcc.x<<" "<<newcc.y<<" "<<newcc.e<<" "<<newcc.t<<" "<<newcc.nhits<<endl;
+           outfile_f<<frame<<" "<<cc_fbin<<" "<<" "<<newt<<" "<<endl;
          }
+
       }
-      
+
+      if(frame>=2){
+         ofstream outfile(Form("data/frame%d.txt",frame-2));
+         for(int ich=0; ich<256; ich++)
+            outfile<<pre_pre_hits.vxs_ch[ich].e<<"  "<<pre_pre_hits.vxs_ch[ich].t<<endl;
+         for(int ich=0; ich<32; ich++)
+            outfile<<pre_pre_hits.fiber_ch[ich].e<<"  "<<pre_pre_hits.fiber_ch[ich].t<<endl;
+         
+         outfile.close();
+      }
+
+      if(frame>=(nframe-2)){
+         ofstream outfile1(Form("data/frame%d.txt",nframe-2));
+         for(int ich=0; ich<256; ich++)
+            outfile1<<pre_hits.vxs_ch[ich].e<<"  "<<pre_hits.vxs_ch[ich].t<<endl;
+         for(int ich=0; ich<32; ich++)
+            outfile1<<pre_hits.fiber_ch[ich].e<<"  "<<pre_hits.fiber_ch[ich].t<<endl;
+         outfile1.close();
+
+         ofstream outfile2(Form("data/frame%d.txt",nframe-1));
+         for(int ich=0; ich<256; ich++)
+            outfile2<<new_hits.vxs_ch[ich].e<<"  "<<new_hits.vxs_ch[ich].t<<endl;
+         for(int ich=0; ich<32; ich++)
+            outfile2<<new_hits.fiber_ch[ich].e<<"  "<<new_hits.fiber_ch[ich].t<<endl;
+         outfile2.close();
+      }
+
+      if(frame>0){
+         pre_pre_hits = pre_hits;
+/*
+for(int ich=0; ich<256; ich++){
+if(pre_hits.vxs_ch[ich].e>0)
+  cout<<ich<<"  "<<pre_hits.vxs_ch[ich].e<<"  "<<pre_hits.vxs_ch[ich].t<<endl;
+}
+
+for(int ich=0; ich<32; ich++){
+if(pre_hits.fiber_ch[ich].e>0)
+  cout<<ich<<"  "<<pre_hits.fiber_ch[ich].e<<"  "<<pre_hits.fiber_ch[ich].t<<endl;
+}
+cout<<"================= 3 ================"<<endl;
+*/
+      }
+      pre_hits = new_hits;
+
     }
 
 }
