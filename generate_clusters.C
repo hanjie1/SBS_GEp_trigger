@@ -1,7 +1,7 @@
 #include "generate_clusters.h"
 
-const int seed_threshold = 5000;
-const int cluster_threshold = 10000;
+const int seed_threshold = 4000;
+const int cluster_threshold = 6000;
 const int hit_dt = 3;  // in 4 ns
 
 cluster_t GenRandomClusters(fadc_hits_t &a_cluster_pre, fadc_hits_t &a_cluster_cur, fadc_hits_t &a_cluster_aft){
@@ -10,7 +10,7 @@ cluster_t GenRandomClusters(fadc_hits_t &a_cluster_pre, fadc_hits_t &a_cluster_c
 
   // generate a seed
   int seed_ch = rand()%288;
-  int seed_e = rand()%8192 + seed_threshold;
+  int seed_e = rand()%(8192-seed_threshold)+ seed_threshold;
   int seed_t = rand()%8;
 
   if(seed_ch<256){
@@ -47,85 +47,151 @@ cluster_t GenRandomClusters(fadc_hits_t &a_cluster_pre, fadc_hits_t &a_cluster_c
 
   int hit_pos_x=0;
   int hit_pos_y=0;
+  int hit_pos_all=0;
 
   for(int ii=0; ii<nhits; ii++){
    int nblock = rand()%8;
+   if( (1<<nblock) &hit_pos_all)continue;  // this hit position is already included in the cluster
+
    switch(nblock){
     case 0:
        hit_pos_x = seed_pos.nx-1;
        hit_pos_y = seed_pos.ny-1;   
+       break;
     case 1:
        hit_pos_x = seed_pos.nx;
        hit_pos_y = seed_pos.ny-1;   
+       break;
     case 2:
        hit_pos_x = seed_pos.nx+1;
        hit_pos_y = seed_pos.ny-1;   
+       break;
     case 3:
        hit_pos_x = seed_pos.nx-1;
        hit_pos_y = seed_pos.ny;   
+       break;
     case 4:
        hit_pos_x = seed_pos.nx+1;
        hit_pos_y = seed_pos.ny;   
+       break;
     case 5:
        hit_pos_x = seed_pos.nx-1;
        hit_pos_y = seed_pos.ny+1;   
+       break;
     case 6:
        hit_pos_x = seed_pos.nx;
        hit_pos_y = seed_pos.ny+1;   
+       break;
     case 7:
        hit_pos_x = seed_pos.nx+1;
        hit_pos_y = seed_pos.ny+1;   
+       break;
    }
    if(hit_pos_x==0 || hit_pos_x>24 || hit_pos_y==0 || hit_pos_y>12)
      continue;
-   
+ 
    int hit_ch = (hit_pos_x-1)*12 + hit_pos_y-1 ;
 
    int ee = rand()%seed_threshold;
    int dt = rand()%(2*hit_dt)-hit_dt;
 
-   if( (seed_t+dt)<0 ){
-     int tt = seed_t+dt+8;
-     if( hit_ch<256){
-       if(a_cluster_pre.vxs_ch[hit_ch].e>0) continue;
-       a_cluster_pre.vxs_ch[hit_ch].e = ee;
-       a_cluster_pre.vxs_ch[hit_ch].t = tt;
-     }
-     else{
-       if(a_cluster_pre.fiber_ch[hit_ch-256].e>0) continue;
-       a_cluster_pre.fiber_ch[hit_ch-256].e = ee;
-       a_cluster_pre.fiber_ch[hit_ch-256].t = tt;
-     }
-   }
-   else if( (seed_t+ dt)>7 ){
-     int tt = dt + seed_t-8;
-     if( hit_ch<256){
-       if(a_cluster_aft.vxs_ch[hit_ch].e>0) continue;
-       a_cluster_aft.vxs_ch[hit_ch].e = ee;
-       a_cluster_aft.vxs_ch[hit_ch].t = tt;
-     }
-     else{
-       if(a_cluster_aft.fiber_ch[hit_ch-256].e>0) continue;
-       a_cluster_aft.fiber_ch[hit_ch-256].e = ee;
-       a_cluster_aft.fiber_ch[hit_ch-256].t = tt;
-     }
+   int newee=ee;
+
+   if(hit_ch<256){
+      if( (seed_t+dt)<0 ){
+        int tt = seed_t+dt+8;
+        if(a_cluster_pre.vxs_ch[hit_ch].e>0){
+            int new_dt = seed_t + 8 - a_cluster_pre.vxs_ch[hit_ch].t;
+            if(new_dt>hit_dt)
+              continue;
+            else
+              newee = a_cluster_pre.vxs_ch[hit_ch].e;
+        }
+        else{
+            a_cluster_pre.vxs_ch[hit_ch].e = ee;
+            a_cluster_pre.vxs_ch[hit_ch].t = tt;
+        }
+      }
+      else if( (seed_t+ dt)>7 ){
+        int tt = dt + seed_t-8;
+          if(a_cluster_aft.vxs_ch[hit_ch].e>0){
+            int new_dt = 8 - seed_t + a_cluster_aft.vxs_ch[hit_ch].t;
+            if(new_dt>hit_dt)
+              continue;
+            else
+              newee = a_cluster_aft.vxs_ch[hit_ch].e;
+          }
+          else{
+             a_cluster_aft.vxs_ch[hit_ch].e = ee;
+             a_cluster_aft.vxs_ch[hit_ch].t = tt;
+          }
+      }
+      else{
+        int tt = dt + seed_t;
+          if(a_cluster_cur.vxs_ch[hit_ch].e>0){
+            int new_dt = abs(seed_t - a_cluster_cur.vxs_ch[hit_ch].t);
+            if(new_dt>hit_dt)
+              continue;
+            else
+              newee = a_cluster_cur.vxs_ch[hit_ch].e;
+          }
+          else{
+             a_cluster_cur.vxs_ch[hit_ch].e = ee;
+             a_cluster_cur.vxs_ch[hit_ch].t = tt;
+          }
+      }
    }
    else{
-     int tt = dt + seed_t;
-     if( hit_ch<256){
-       if(a_cluster_cur.vxs_ch[hit_ch].e>0) continue;
-       a_cluster_cur.vxs_ch[hit_ch].e = ee;
-       a_cluster_cur.vxs_ch[hit_ch].t = tt;
-     }
-     else{
-       if(a_cluster_cur.fiber_ch[hit_ch-256].e>0) continue;
-       a_cluster_cur.fiber_ch[hit_ch-256].e = ee;
-       a_cluster_cur.fiber_ch[hit_ch-256].t = tt;
-     }
+      if( (seed_t+dt)<0 ){
+        int tt = seed_t+dt+8;
+        if(a_cluster_pre.fiber_ch[hit_ch-256].e>0){
+            int new_dt = seed_t + 8 - a_cluster_pre.fiber_ch[hit_ch-256].t;
+            if(new_dt>hit_dt)
+              continue;
+            else
+              newee = a_cluster_pre.fiber_ch[hit_ch-256].e;
+        }
+        else{
+            a_cluster_pre.fiber_ch[hit_ch-256].e = ee;
+            a_cluster_pre.fiber_ch[hit_ch-256].t = tt;
+        }
+      }
+      else if( (seed_t+ dt)>7 ){
+        int tt = dt + seed_t-8;
+          if(a_cluster_aft.fiber_ch[hit_ch-256].e>0){
+            int new_dt = 8 - seed_t + a_cluster_aft.fiber_ch[hit_ch-256].t;
+            if(new_dt>hit_dt)
+              continue;
+            else
+              newee = a_cluster_aft.fiber_ch[hit_ch-256].e;
+          }
+          else{
+             a_cluster_aft.fiber_ch[hit_ch-256].e = ee;
+             a_cluster_aft.fiber_ch[hit_ch-256].t = tt;
+          }
+      }
+      else{
+        int tt = dt + seed_t;
+          if(a_cluster_cur.fiber_ch[hit_ch-256].e>0){
+            int new_dt = abs(seed_t - a_cluster_cur.fiber_ch[hit_ch-256].t);
+            if(new_dt>hit_dt)
+              continue;
+            else
+              newee = a_cluster_cur.fiber_ch[hit_ch-256].e;
+          }
+          else{
+             a_cluster_cur.fiber_ch[hit_ch-256].e = ee;
+             a_cluster_cur.fiber_ch[hit_ch-256].t = tt;
+          }
+      }
+
+
    }
+//cout<<ii<<"  "<<nblock<<"  "<<hit_ch<<"  "<<newee<<endl;
+   hit_pos_all = hit_pos_all | (1<<nblock);
 
    tot = tot+1;   
-   tot_e = tot_e + ee;
+   tot_e = tot_e + newee;
   } 
 
   cc.e = tot_e;
@@ -186,8 +252,8 @@ void generate_clusters(){
 
          // record each cluster and the fiber output
            int newt = newcc.t + (frame-1)*8;
-           outfile_c<<frame<<" "<<cc_ch<<" "<<" "<<newcc.x<<" "<<newcc.y<<" "<<newcc.e<<" "<<newcc.t<<" "<<newcc.nhits<<endl;
-           outfile_f<<frame<<" "<<cc_fbin<<" "<<" "<<newt<<" "<<endl;
+           outfile_c<<frame-1<<" "<<cc_ch<<" "<<" "<<newcc.x<<" "<<newcc.y<<" "<<newcc.e<<" "<<newcc.t<<" "<<newcc.nhits<<endl;
+           outfile_f<<frame-1<<" "<<cc_fbin<<" "<<" "<<newt<<" "<<endl;
          }
 
       }
