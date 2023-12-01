@@ -8,8 +8,8 @@ using namespace std;
 int main(int argc, char *argv[])
 {
   ap_uint<3> hit_dt = 3;
-  ap_uint<13> seed_threshold = 5000;
-  ap_uint<16> cluster_threshold = 10000;
+  ap_uint<13> seed_threshold = 4000;
+  ap_uint<16> cluster_threshold = 6000;
   hls::stream<fadc_hits_t> s_fadc_hits;
   hls::stream<fiber_bins_t> s_fiberout;
   hls::stream<cluster_all_t> s_cluster_all;
