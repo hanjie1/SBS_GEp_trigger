@@ -19,9 +19,13 @@ int main(int argc, char *argv[])
 
       fadc_hits_t new_hits;
 
-      char filename[100];
-      snprintf(filename, 100, "%s%d.txt","data/frame",ii);
+      char filename[200];
+      snprintf(filename, 200, "%s%d.txt","/home/hanjie/GEp/GEp_trigger/data/frame",ii);
       ifstream infile(filename);
+      if(infile.is_open())
+        printf("open file: %s\n",filename);
+      else
+        continue;
 
       int nn=0;
       while( !infile.eof() )
@@ -38,10 +42,15 @@ int main(int argc, char *argv[])
             new_hits.fiber_ch[nn-256].t = (ap_uint<3>)tt;
          }
          nn++;
+         printf("%d\n",nn);
       }
+      if(ii==1)break;
+      infile.close();
 
       s_fadc_hits.write(new_hits);
   }
+ 
+  return 0;
   
   while(!s_fadc_hits.empty())
   {

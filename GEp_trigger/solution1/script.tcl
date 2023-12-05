@@ -10,7 +10,7 @@ open_solution "solution1" -flow_target vivado
 set_part {xc7vx550t-ffg1927-1}
 create_clock -period 32 -name default
 #source "./GEp_trigger/solution1/directives.tcl"
-csim_design
+csim_design -profile
 csynth_design
 cosim_design
 export_design -format ip_catalog
