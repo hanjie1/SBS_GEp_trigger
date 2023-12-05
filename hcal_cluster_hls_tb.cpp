@@ -15,7 +15,8 @@ int main(int argc, char *argv[])
   hls::stream<cluster_all_t> s_cluster_all;
 
   int nframe=6;
-  for(int ii=0; ii<nframe; ii++){
+  int ii=0;
+  for(ii=0; ii<nframe; ii++){
 
       fadc_hits_t new_hits;
 
@@ -28,7 +29,7 @@ int main(int argc, char *argv[])
         continue;
 
       int nn=0;
-      while( !infile.eof() )
+      while( !infile.eof() && nn<288) 
       {
          int ee,tt;
          infile>>ee;
@@ -42,18 +43,17 @@ int main(int argc, char *argv[])
             new_hits.fiber_ch[nn-256].t = (ap_uint<3>)tt;
          }
          nn++;
-         printf("%d\n",nn);
       }
-      if(ii==1)break;
+      printf("%d %d\n",ii,nn);
       infile.close();
 
       s_fadc_hits.write(new_hits);
   }
- 
-  return 0;
-  
+
+  int nn=0;
   while(!s_fadc_hits.empty())
   {
+cout<<"frame  "<<nn<<endl;
     hcal_cluster_hls(
         hit_dt,
         seed_threshold,
@@ -62,9 +62,10 @@ int main(int argc, char *argv[])
         s_fiberout,
         s_cluster_all
       );
+nn++;
   }
 
-  int nn=0;
+  nn=0;
   while(!s_cluster_all.empty()){
      cluster_all_t cc = s_cluster_all.read();
      for(int ii=0; ii<288; ii++){

@@ -1,4 +1,5 @@
 #include "hcal_cluster_hls.h"
+using namespace std;
 
 // hcal_cluster_hls:
 // - hit_dt: maximum time difference (in +/-4ns ticks) from seed hit required to accept adjacent spacial hit into cluster 
@@ -36,6 +37,20 @@ void hcal_cluster_hls(
   for(ch=0; ch<32; ch++)
       all_fadc_hits[ch+256] = fadc_hits.fiber_ch[ch];
 
+/*
+ for(ch=0; ch<288; ch++){
+   cout<<ch<<"  "<<all_fadc_hits_pre_pre[ch].e<<"  "<<all_fadc_hits_pre_pre[ch].t<<endl;
+ }
+
+ for(ch=0; ch<288; ch++){
+   cout<<ch<<"  "<<all_fadc_hits_pre[ch].e<<"  "<<all_fadc_hits_pre[ch].t<<endl;
+ }
+
+ for(ch=0; ch<288; ch++){
+   cout<<ch<<"  "<<all_fadc_hits[ch].e<<"  "<<all_fadc_hits[ch].t<<endl;
+ }
+*/
+
   cluster_all_t allc;
   
   for(ch=0; ch<288;ch++){
@@ -69,7 +84,6 @@ void hcal_cluster_hls(
      all_fadc_hits_pre_pre[ch] = all_fadc_hits_pre[ch];
      all_fadc_hits_pre[ch] = all_fadc_hits[ch];
   }
-
 #ifndef __SYNTHESIS__
   int nclust = 0;
   for(ch=0; ch<288;ch++){
@@ -100,8 +114,7 @@ ap_uint<7> fiber_map[288]={
 fiber_bins_t FiberOut(cluster_all_t allc, ap_uint<16> cluster_threshold){
 
   fiber_bins_t allf;
-
-  ap_uint<7> fiber_ch=0; 
+  ap_uint<8> fiber_ch=0; 
   for(fiber_ch=0; fiber_ch<128; fiber_ch++){
       allf.bins[fiber_ch].t=0;
       allf.bins[fiber_ch].valid=0;
@@ -199,6 +212,7 @@ cluster_t Find_cluster(
     cc.y=y;
    
     if( curhits[0].e<seed_threshold ) return cc;
+cout<<x.to_uint()<<"  "<<y.to_uint()<<endl;
 
     ap_uint<4> t0 = 0;
     ap_uint<13> e0=0; 

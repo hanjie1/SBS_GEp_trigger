@@ -1,4 +1,35 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch CLANG as the compiler.
-   Compiling ../../../../hcal_cluster_hls_tb.cpp in debug mode
+   Compiling ../../../../hcal_cluster_hls.cpp in debug mode
    Generating csim.exe
+open file: /home/hanjie/GEp/GEp_trigger/data/frame0.txt
+0 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame1.txt
+1 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame2.txt
+2 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame3.txt
+3 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame4.txt
+4 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame5.txt
+5 288
+frame  0
+nclust: 0
+frame  1
+nclust: 0
+frame  2
+21  5
+nclust: 0
+frame  3
+3  4
+nclust: 0
+frame  4
+22  6
+nclust: 0
+frame  5
+16  10
+nclust: 0
+The maximum depth reached by any of the 3 hls::stream() instances in the design is 6
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
