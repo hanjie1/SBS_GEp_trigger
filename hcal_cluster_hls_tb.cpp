@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
   int nn=0;
   while(!s_fadc_hits.empty())
   {
-cout<<"frame  "<<nn<<endl;
+    cout<<"frame  "<<nn<<endl;
     hcal_cluster_hls(
         hit_dt,
         seed_threshold,
@@ -62,7 +62,7 @@ cout<<"frame  "<<nn<<endl;
         s_fiberout,
         s_cluster_all
       );
-nn++;
+    nn++;
   }
 
   nn=0;
@@ -71,7 +71,7 @@ nn++;
      for(int ii=0; ii<288; ii++){
          if(cc.c[ii].e>0){
             int tmpe = cc.c[ii].e.to_uint();
-            int tmpt = cc.c[ii].t.to_uint()*4+nn*8*4;
+            int tmpt = cc.c[ii].t.to_uint()*4+(nn-1)*8*4;
             int tmpx = cc.c[ii].x.to_uint();
             int tmpy = cc.c[ii].y.to_uint();
             int tmpn = cc.c[ii].nhits.to_uint();
@@ -87,7 +87,7 @@ nn++;
      fiber_bins_t ff = s_fiberout.read();
      for(int ii=0; ii<128; ii++){
          if(ff.bins[ii].valid==1){
-            int tmpt = ff.bins[ii].t.to_uint()*4+nn*8*4;
+            int tmpt = ff.bins[ii].t.to_uint()*4+(nn-1)*8*4;
 
             printf("Fiber out at frame %d: ch=%d, t=%d\n",nn,ii,tmpt);
          }

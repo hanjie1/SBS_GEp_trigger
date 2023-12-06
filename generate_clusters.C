@@ -251,7 +251,7 @@ void generate_clusters(){
            int cc_fbin = fiber_map[cc_ch];
 
          // record each cluster and the fiber output
-           int newt = newcc.t + (frame-1)*8;
+           int newt = (newcc.t + (frame-1)*8)*4;
            outfile_c<<frame-1<<" "<<cc_ch<<" "<<" "<<newcc.x<<" "<<newcc.y<<" "<<newcc.e<<" "<<newcc.t<<" "<<newcc.nhits<<endl;
            outfile_f<<frame-1<<" "<<cc_fbin<<" "<<" "<<newt<<" "<<endl;
          }

@@ -66,6 +66,7 @@ void hcal_cluster_hls(
  
       for(ipos=0; ipos<8; ipos++){
          ap_uint<9> nearby_ch = Find_nearby(ch, ipos);
+
          if(nearby_ch>=288) continue;
 
          nearby_hit_pre[ipos+1]=all_fadc_hits_pre_pre[nearby_ch];
@@ -87,9 +88,10 @@ void hcal_cluster_hls(
 #ifndef __SYNTHESIS__
   int nclust = 0;
   for(ch=0; ch<288;ch++){
-    if(allc.c[ch].nhits>1)
+    if(allc.c[ch].nhits>1){
       nclust++;
-      //printf("nclust %d at (%d, %d), e=%d, t=%d\n",nclust,allc.c[ch].x.to_uint(),allc.c[ch].y.to_uint(),allc.c[ch].e.to_uint(),allc.c[ch].t.to_uint());
+      printf("nclust %d at (%d, %d), e=%d, t=%d\n",nclust,allc.c[ch].x.to_uint(),allc.c[ch].y.to_uint(),allc.c[ch].e.to_uint(),allc.c[ch].t.to_uint());
+    }
   }
   printf("nclust: %d\n",nclust);
 #endif
@@ -161,14 +163,15 @@ ap_uint<5> Find_block(ap_uint<9> ch, ap_uint<1> dim){
 ap_uint<9> Find_channel(ap_uint<5> nx, ap_uint<4> ny){
   ap_uint<9> ch = 511;
 
-  if(nx<1 || nx>12 || ny<1 || ny>24)
+  if(nx<1 || nx>24 || ny<1 || ny>12)
     return ch;
 
   ap_uint<9> ich=0;
   for(ich=0;ich<288;ich++){
-      if( (block_map[ich].nx==nx) && (block_map[ich].ny==ny) )
+      if( (block_map[ich].nx==nx) && (block_map[ich].ny==ny) ){
 	   ch = ich;
            return ch;
+      }
   }
 
   return ch;
@@ -212,7 +215,6 @@ cluster_t Find_cluster(
     cc.y=y;
    
     if( curhits[0].e<seed_threshold ) return cc;
-cout<<x.to_uint()<<"  "<<y.to_uint()<<endl;
 
     ap_uint<4> t0 = 0;
     ap_uint<13> e0=0; 
@@ -244,7 +246,6 @@ cout<<x.to_uint()<<"  "<<y.to_uint()<<endl;
 
         if(nhits[nblock]>0)
           nhits[0] = nhits[0]+nhits[nblock];
-        
     }  
 
     if(nhits[0]>0){

@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/opt/Xilinx/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'hanjie' on host 'braydopc2.jlab.org' (Linux_x86_64 version 3.10.0-1160.102.1.el7.x86_64) on Tue Dec 05 17:22:54 EST 2023
+INFO: [HLS 200-10] For user 'hanjie' on host 'braydopc2.jlab.org' (Linux_x86_64 version 3.10.0-1160.102.1.el7.x86_64) on Wed Dec 06 13:58:29 EST 2023
 INFO: [HLS 200-10] On os "Red Hat Enterprise Linux Workstation release 7.9 (Maipo)"
 INFO: [HLS 200-10] In directory '/home/hanjie/GEp/GEp_trigger'
 Sourcing Tcl script '/home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/csim.tcl'
@@ -20,7 +20,7 @@ INFO: [HLS 200-1510] Running: create_clock -period 32 -name default
 INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
 INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
-   Compiling ../../../../hcal_cluster_hls.cpp in debug mode
+   Compiling ../../../../hcal_cluster_hls_tb.cpp in debug mode
    Generating csim.exe
 open file: /home/hanjie/GEp/GEp_trigger/data/frame0.txt
 0 288
@@ -39,19 +39,26 @@ nclust: 0
 frame  1
 nclust: 0
 frame  2
-21  5
-nclust: 0
+nclust 1 at (21, 5), e=9201, t=4
+nclust: 1
 frame  3
-3  4
-nclust: 0
+nclust 1 at (3, 4), e=7688, t=4
+nclust: 1
 frame  4
-22  6
-nclust: 0
+nclust 1 at (22, 6), e=5698, t=3
+nclust: 1
 frame  5
-16  10
-nclust: 0
+nclust 1 at (16, 10), e=9446, t=0
+nclust: 1
+Find cluster at frame 2: ch=244, e=9201, t=48, x=21, y=5, nhits=3
+Find cluster at frame 3: ch=27, e=7688, t=80, x=3, y=4, nhits=3
+Find cluster at frame 4: ch=257, e=5698, t=108, x=22, y=6, nhits=3
+Find cluster at frame 5: ch=189, e=9446, t=128, x=16, y=10, nhits=4
+Fiber out at frame 2: ch=62, t=48
+Fiber out at frame 3: ch=7, t=80
+Fiber out at frame 5: ch=46, t=128
 The maximum depth reached by any of the 3 hls::stream() instances in the design is 6
    Generating dot files
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-111] Finished Command csim_design CPU user time: 7.4 seconds. CPU system time: 0.67 seconds. Elapsed time: 7.68 seconds; current allocated memory: 101.535 MB.
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 7.02 seconds. CPU system time: 0.62 seconds. Elapsed time: 7.19 seconds; current allocated memory: 101.535 MB.
