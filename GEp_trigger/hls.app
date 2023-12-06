@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" name="GEp_trigger" top="">
+<project xmlns="com.autoesl.autopilot.project" name="GEp_trigger" top="hcal_cluster_hls">
     <includePaths/>
     <libraryPaths/>
     <Simulation>
