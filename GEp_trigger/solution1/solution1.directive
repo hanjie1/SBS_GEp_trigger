@@ -5,6 +5,12 @@
                 <option name="name" value="hcal_cluster_hls"/>
             </pragma>
         </directive>
+        <directive functionName="hcal_cluster_hls" label="" functionLabel="">
+            <pragma name="PIPELINE">
+                <option name="II" value="1"/>
+                <option name="enable_flush" value="" positionalBoolean="1"/>
+            </pragma>
+        </directive>
     </sourceFile>
 </AutoPilot:ProjectResources>
 

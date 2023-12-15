@@ -4,6 +4,10 @@
 #include <ap_int.h>
 #include <hls_stream.h>
 
+#define NCHAN_CRATE 256
+#define NCHAN_FIBER 32
+#define NCHAN_TOT NCHAN_CRATE+NCHAN_FIBER
+
 // hit_t:
 // - every 32ns each fadc channel reports 13 bit energy, and 3 bit hit time (time offset in current 32ns clock: 0=0ns, 1=4ns, 2=8ns, ..., 7=28ns)
 // - if the channel has no hit, then the energy, e, will be reported as 0
@@ -29,8 +33,8 @@ typedef struct
 //   fiber_ch[0] to fiber_ch[31]: these come from the other crate
 typedef struct
 {
-  hit_t vxs_ch[256];
-  hit_t fiber_ch[32];
+  hit_t vxs_ch[NCHAN_CRATE];
+  hit_t fiber_ch[NCHAN_FIBER];
 } fadc_hits_t;
 
 typedef struct
@@ -62,7 +66,7 @@ typedef struct
 
 typedef struct
 {
-  cluster_t c[288];
+  cluster_t c[NCHAN_TOT];
 } cluster_all_t;
 
 void hcal_cluster_hls(

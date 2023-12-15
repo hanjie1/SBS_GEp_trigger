@@ -111,5 +111,5 @@ profile_all: profile_data $(POBJECTS)
 	${CP} -r ${pObjDir} /home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/.autopilot/db/dot ; \
 	${CP} LinkFile.bc /home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/.autopilot/db/dot ; \
 	${CD} /home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/.autopilot/db/dot ; \
-	${AP_CLANG_PATH}/opt -dot-callgraph-hls -cfg-hier-userfilelist "/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls_tb.cpp /home/hanjie/GEp/GEp_trigger/hcal_cluster_hls.cpp" -csim-top-function-name= LinkFile.bc -o LinkFile_fid.bc ; \
+	${AP_CLANG_PATH}/opt -dot-callgraph-hls -cfg-hier-userfilelist "/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls_tb.cpp /home/hanjie/GEp/GEp_trigger/hcal_cluster_hls.cpp" -csim-top-function-name=hcal_cluster_hls LinkFile.bc -o LinkFile_fid.bc ; \
 	${AP_CLANG_PATH}/opt -dot-cfg-hier-only -cfg-hier-userfilelist "/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls_tb.cpp /home/hanjie/GEp/GEp_trigger/hcal_cluster_hls.cpp" -cfg-hier-type csim LinkFile_fid.bc -o LinkFile_pp.bc ; 

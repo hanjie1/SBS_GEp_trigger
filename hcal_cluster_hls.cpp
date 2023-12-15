@@ -24,18 +24,18 @@ void hcal_cluster_hls(
 //  static hit_t all_fadc_hits_pre_pre[288] = {{{0,0}},{{0,0}}};
 //  static hit_t all_fadc_hits_pre = {{{0,0}},{{0,0}}};
 //#else
-  static hit_t all_fadc_hits_pre_pre[288];
-  static hit_t all_fadc_hits_pre[288];
+  static hit_t all_fadc_hits_pre_pre[NCHAN_TOT];
+  static hit_t all_fadc_hits_pre[NCHAN_TOT];
 //#endif
 
-  hit_t all_fadc_hits[288];
+  hit_t all_fadc_hits[NCHAN_TOT];
 
   ap_uint<9> ch=0;
-  for(ch=0; ch<256; ch++)
+  for(ch=0; ch<NCHAN_CRATE; ch++)
       all_fadc_hits[ch] = fadc_hits.vxs_ch[ch];
    
-  for(ch=0; ch<32; ch++)
-      all_fadc_hits[ch+256] = fadc_hits.fiber_ch[ch];
+  for(ch=0; ch<NCHAN_FIBER; ch++)
+      all_fadc_hits[ch+NCHAN_CRATE] = fadc_hits.fiber_ch[ch];
 
 /*
  for(ch=0; ch<288; ch++){
@@ -53,7 +53,7 @@ void hcal_cluster_hls(
 
   cluster_all_t allc;
   
-  for(ch=0; ch<288;ch++){
+  for(ch=0; ch<NCHAN_TOT;ch++){
       hit_t nearby_hit_pre[9];
       hit_t nearby_hit_cur[9];
       hit_t nearby_hit_aft[9];
@@ -67,7 +67,16 @@ void hcal_cluster_hls(
       for(ipos=0; ipos<8; ipos++){
          ap_uint<9> nearby_ch = Find_nearby(ch, ipos);
 
-         if(nearby_ch>=288) continue;
+         if(nearby_ch>=NCHAN_TOT){
+            nearby_hit_pre[ipos+1].e=0;
+            nearby_hit_pre[ipos+1].t=0;
+
+            nearby_hit_cur[ipos+1].e=0;
+            nearby_hit_cur[ipos+1].t=0;
+
+            nearby_hit_aft[ipos+1].e=0;
+            nearby_hit_aft[ipos+1].t=0;
+         }
 
          nearby_hit_pre[ipos+1]=all_fadc_hits_pre_pre[nearby_ch];
          nearby_hit_cur[ipos+1]=all_fadc_hits_pre[nearby_ch];
@@ -81,13 +90,18 @@ void hcal_cluster_hls(
      
   // save the previous fadc_hits
 
-  for(ch=0; ch<288; ch++){
+  for(ch=0; ch<NCHAN_TOT; ch++){
      all_fadc_hits_pre_pre[ch] = all_fadc_hits_pre[ch];
+  }
+
+  for(ch=0; ch<NCHAN_TOT; ch++){
      all_fadc_hits_pre[ch] = all_fadc_hits[ch];
   }
+
+
 #ifndef __SYNTHESIS__
   int nclust = 0;
-  for(ch=0; ch<288;ch++){
+  for(ch=0; ch<NCHAN_TOT;ch++){
     if(allc.c[ch].nhits>1){
       nclust++;
       printf("nclust %d at (%d, %d), e=%d, t=%d\n",nclust,allc.c[ch].x.to_uint(),allc.c[ch].y.to_uint(),allc.c[ch].e.to_uint(),allc.c[ch].t.to_uint());
@@ -123,7 +137,7 @@ fiber_bins_t FiberOut(cluster_all_t allc, ap_uint<16> cluster_threshold){
   }
 
   ap_uint<9> ch=0;
-  for(ch=0; ch<288;ch++){
+  for(ch=0; ch<NCHAN_TOT;ch++){
      if( allc.c[ch].e>cluster_threshold ){
          ap_uint<7> fiber_bin = fiber_map[ch];
        
@@ -167,10 +181,9 @@ ap_uint<9> Find_channel(ap_uint<5> nx, ap_uint<4> ny){
     return ch;
 
   ap_uint<9> ich=0;
-  for(ich=0;ich<288;ich++){
+  for(ich=0;ich<NCHAN_TOT;ich++){
       if( (block_map[ich].nx==nx) && (block_map[ich].ny==ny) ){
 	   ch = ich;
-           return ch;
       }
   }
 
@@ -227,31 +240,31 @@ cluster_t Find_cluster(
     ap_uint<4> nblock;
     for(nblock=1; nblock<9; nblock++){
         if( curhits[nblock].e>0 && hit_coin_t(t0, curhits[nblock].t, hit_dt) ){
-            if(curhits[nblock].e > e0) return cc;
+            if(curhits[nblock].e > e0)
+               nhits[0]=0;
             nhits[nblock] = nhits[nblock]+1;
             total_e = total_e + curhits[nblock].e; 
         }
 
         if( prehits[nblock].e>0 && hit_coin_t(t0+8, prehits[nblock].t, hit_dt) ){
-            if(prehits[nblock].e > e0) return cc;
+            if(prehits[nblock].e > e0)
+               nhits[0]=0;
             nhits[nblock] = nhits[nblock]+1;
             total_e = total_e + prehits[nblock].e; 
         }
 
         if( afthits[nblock].e && hit_coin_t(t0, afthits[nblock].t+8, hit_dt) ){
-            if(afthits[nblock].e > e0) return cc;
+            if(afthits[nblock].e > e0) 
+               nhits[0]=0;
             nhits[nblock] = nhits[nblock]+1;
             total_e = total_e + afthits[nblock].e; 
         }
-
-        if(nhits[nblock]>0)
-          nhits[0] = nhits[0]+nhits[nblock];
     }  
 
     if(nhits[0]>0){
        cc.e = total_e;
        cc.t = t0;
-       cc.nhits = nhits[0];
+       cc.nhits = nhits[0]+nhits[1]+nhits[2]+nhits[3]+nhits[4]+nhits[5]+nhits[6]+nhits[7]+nhits[8];
        cc.x = x;
        cc.y = y;
     } 

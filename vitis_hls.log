@@ -1,8 +1,8 @@
 INFO: [HLS 200-10] Running '/opt/Xilinx/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'hanjie' on host 'braydopc2.jlab.org' (Linux_x86_64 version 3.10.0-1160.102.1.el7.x86_64) on Wed Dec 06 14:09:09 EST 2023
+INFO: [HLS 200-10] For user 'hanjie' on host 'braydopc2.jlab.org' (Linux_x86_64 version 3.10.0-1160.102.1.el7.x86_64) on Fri Dec 15 10:17:04 EST 2023
 INFO: [HLS 200-10] On os "Red Hat Enterprise Linux Workstation release 7.9 (Maipo)"
 INFO: [HLS 200-10] In directory '/home/hanjie/GEp/GEp_trigger'
-Sourcing Tcl script '/home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/csynth.tcl'
+Sourcing Tcl script '/home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/csim.tcl'
 INFO: [HLS 200-1510] Running: open_project GEp_trigger 
 INFO: [HLS 200-10] Opening project '/home/hanjie/GEp/GEp_trigger/GEp_trigger'.
 INFO: [HLS 200-1510] Running: set_top hcal_cluster_hls 
@@ -18,182 +18,50 @@ INFO: [HLS 200-1505] Using flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
 INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
 INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
-INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 101.418 MB.
-INFO: [HLS 200-10] Analyzing design file 'hcal_cluster_hls.cpp' ... 
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 6.78 seconds. CPU system time: 0.47 seconds. Elapsed time: 7.31 seconds; current allocated memory: 102.640 MB.
-INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
-INFO: [HLS 214-131] Inlining function 'hls::stream<fadc_hits_t, 0>::read(fadc_hits_t&)' into 'hls::stream<fadc_hits_t, 0>::read()' (/opt/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:156:9)
-INFO: [HLS 214-131] Inlining function 'hls::stream<fadc_hits_t, 0>::read()' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:20:39)
-INFO: [HLS 214-131] Inlining function 'hls::stream<fiber_bins_t, 0>::write(fiber_bins_t const&)' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:102:14)
-INFO: [HLS 214-131] Inlining function 'hls::stream<cluster_all_t, 0>::write(cluster_all_t const&)' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:99:17)
-INFO: [HLS 214-178] Inlining function 'Find_block(ap_uint<9>, ap_uint<1>)' into 'Find_nearby(ap_uint<9>, ap_uint<3>)' (hcal_cluster_hls.cpp:180:0)
-INFO: [HLS 214-178] Inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' into 'Find_cluster(hit_t*, hit_t*, hit_t*, ap_uint<3>, ap_uint<13>, ap_uint<5>, ap_uint<4>)' (hcal_cluster_hls.cpp:209:0)
-INFO: [HLS 214-178] Inlining function 'Find_block(ap_uint<9>, ap_uint<1>)' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:19:0)
-INFO: [HLS 214-178] Inlining function 'FiberOut(cluster_all_t, ap_uint<16>)' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:19:0)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i13824.s_struct.cluster_all_ts' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (/opt/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i2048.s_struct.fiber_bins_ts' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (/opt/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 170.45 seconds. CPU system time: 0.54 seconds. Elapsed time: 171.08 seconds; current allocated memory: 114.410 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 114.411 MB.
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 11.86 seconds. CPU system time: 0.06 seconds. Elapsed time: 12 seconds; current allocated memory: 183.946 MB.
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 204.5 seconds. CPU system time: 0 seconds. Elapsed time: 204.52 seconds; current allocated memory: 179.704 MB.
-INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_170_1' (hcal_cluster_hls.cpp:169) in function 'Find_channel' automatically.
-INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_34_1' (hcal_cluster_hls.cpp:33) in function 'hcal_cluster_hls' automatically.
-INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_37_2' (hcal_cluster_hls.cpp:33) in function 'hcal_cluster_hls' automatically.
-INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_84_5' (hcal_cluster_hls.cpp:33) in function 'hcal_cluster_hls' automatically.
-INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_120_1' (hcal_cluster_hls.cpp:119) in function 'hcal_cluster_hls' automatically.
-INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_126_2' (hcal_cluster_hls.cpp:125) in function 'hcal_cluster_hls' automatically.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (hcal_cluster_hls.cpp:128:33) to (hcal_cluster_hls.cpp:138:6) in function 'hcal_cluster_hls'... converting 3 basic blocks.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 243.68 seconds. CPU system time: 0.04 seconds. Elapsed time: 243.74 seconds; current allocated memory: 217.581 MB.
-INFO: [HLS 200-472] Inferring partial write operation for 'tmp.vxs_ch.e.V' (/opt/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 200-472] Inferring partial write operation for 'all_fadc_hits.e.V' (hcal_cluster_hls.cpp:35:25)
-INFO: [HLS 200-472] Inferring partial write operation for 'all_fadc_hits.e.V' (hcal_cluster_hls.cpp:38:29)
-INFO: [HLS 200-472] Inferring partial write operation for 'nearby_hit_pre.e.V' (hcal_cluster_hls.cpp:61:25)
-INFO: [HLS 200-472] Inferring partial write operation for 'nearby_hit_cur.e.V' (hcal_cluster_hls.cpp:62:25)
-INFO: [HLS 200-472] Inferring partial write operation for 'nearby_hit_aft.e.V' (hcal_cluster_hls.cpp:63:25)
-INFO: [HLS 200-472] Inferring partial write operation for 'nearby_hit_pre.e.V' (hcal_cluster_hls.cpp:72:32)
-INFO: [HLS 200-472] Inferring partial write operation for 'nearby_hit_cur.e.V' (hcal_cluster_hls.cpp:73:32)
-INFO: [HLS 200-472] Inferring partial write operation for 'nearby_hit_aft.e.V' (hcal_cluster_hls.cpp:74:32)
-INFO: [HLS 200-472] Inferring partial write operation for 'allc.c.x.V' (hcal_cluster_hls.cpp:78:18)
-INFO: [HLS 200-472] Inferring partial write operation for 'all_fadc_hits_pre_pre.e.V' (hcal_cluster_hls.cpp:85:32)
-INFO: [HLS 200-472] Inferring partial write operation for 'all_fadc_hits_pre.e.V' (hcal_cluster_hls.cpp:86:28)
-INFO: [HLS 200-472] Inferring partial write operation for 'allc.c.e.V' (hcal_cluster_hls.cpp:116:37)
-INFO: [HLS 200-472] Inferring partial write operation for 'allf.bins.t.V' (hcal_cluster_hls.cpp:121:28)
-INFO: [HLS 200-472] Inferring partial write operation for 'allf.bins.valid.V' (hcal_cluster_hls.cpp:122:32)
-INFO: [HLS 200-472] Inferring partial write operation for 'allf.bins.t.V' (hcal_cluster_hls.cpp:135:33)
-INFO: [HLS 200-472] Inferring partial write operation for 'allf.bins.valid.V' (hcal_cluster_hls.cpp:136:37)
-INFO: [HLS 200-472] Inferring partial write operation for 'nhits.V' 
-INFO: [HLS 200-472] Inferring partial write operation for 'nhits.V' (hcal_cluster_hls.cpp:231:27)
-INFO: [HLS 200-472] Inferring partial write operation for 'nhits.V' (hcal_cluster_hls.cpp:237:27)
-INFO: [HLS 200-472] Inferring partial write operation for 'nhits.V' (hcal_cluster_hls.cpp:243:27)
-INFO: [HLS 200-472] Inferring partial write operation for 'nhits.V' (hcal_cluster_hls.cpp:248:20)
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 62.95 seconds. CPU system time: 0.06 seconds. Elapsed time: 63.02 seconds; current allocated memory: 270.273 MB.
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'hcal_cluster_hls' ...
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Find_channel' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_170_1'.
-WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation ('icmp_ln870_1')) in the first pipeline iteration (II = 1 cycles).
-Resolution: For help on HLS 200-878 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-878.html
-WARNING: [HLS 200-878] Unable to schedule the loop exit test ('icmp' operation ('icmp_ln870_1')) in the first pipeline iteration (II = 2 cycles).
-Resolution: For help on HLS 200-878 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-878.html
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 3, Depth = 3, loop 'VITIS_LOOP_170_1'
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 3.49 seconds. CPU system time: 0.01 seconds. Elapsed time: 3.53 seconds; current allocated memory: 274.412 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 274.630 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Find_nearby' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 274.783 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 275.022 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Find_cluster' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.24 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.24 seconds; current allocated memory: 275.443 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.23 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 276.041 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'hcal_cluster_hls' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_34_1'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_34_1'
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_37_2'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_37_2'
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_84_5'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_84_5'
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_120_1'.
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'VITIS_LOOP_120_1'
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_126_2'.
-WARNING: [HLS 200-880] The II Violation in module 'hcal_cluster_hls' (loop 'VITIS_LOOP_126_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('allf_bins_t_V_addr_129_write_ln135', hcal_cluster_hls.cpp:135) of variable 'newt.V' on array 'allf.bins.t.V', hcal_cluster_hls.cpp:118 and 'load' operation ('allf_bins_t_V_load_128') on array 'allf.bins.t.V', hcal_cluster_hls.cpp:118.
-Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-880.html
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 6, loop 'VITIS_LOOP_126_2'
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 13.82 seconds. CPU system time: 0.03 seconds. Elapsed time: 13.85 seconds; current allocated memory: 297.504 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 15.41 seconds. CPU system time: 0.04 seconds. Elapsed time: 15.45 seconds; current allocated memory: 334.263 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'Find_channel' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'Find_channel'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 4.16 seconds. CPU system time: 0.08 seconds. Elapsed time: 4.24 seconds; current allocated memory: 334.618 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'Find_nearby' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'Find_nearby'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 335.610 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'Find_cluster' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'Find_cluster'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.19 seconds; current allocated memory: 337.416 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'hcal_cluster_hls' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/hit_dt' to 'ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/seed_threshold' to 'ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/cluster_threshold' to 'ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_fadc_hits_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_fiberout_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_cluster_all_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on function 'hcal_cluster_hls' to 'ap_ctrl_hs'.
-INFO: [RTGEN 206-104] Estimated max fanout for 'hcal_cluster_hls' is 13833 from HDL expression: ((s_cluster_all_V_full_n == 1'b1) & (1'b1 == ap_CS_fsm_state421))
-INFO: [RTGEN 206-100] Finished creating RTL model for 'hcal_cluster_hls'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 8.92 seconds. CPU system time: 0.12 seconds. Elapsed time: 9.04 seconds; current allocated memory: 482.147 MB.
-INFO: [RTMG 210-279] Implementing memory 'hcal_cluster_hls_Find_channel_block_map_nx_V_rom' using auto ROMs.
-INFO: [RTMG 210-279] Implementing memory 'hcal_cluster_hls_Find_channel_block_map_ny_V_rom' using auto ROMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_Find_cluster_nhits_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_all_fadc_hits_pre_pre_e_V_ram (RAM)' using auto RAMs with power-on initialization.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_all_fadc_hits_pre_pre_t_V_ram (RAM)' using auto RAMs with power-on initialization.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_all_fadc_hits_pre_e_V_ram (RAM)' using auto RAMs with power-on initialization.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_all_fadc_hits_pre_t_V_ram (RAM)' using auto RAMs with power-on initialization.
-INFO: [RTMG 210-279] Implementing memory 'hcal_cluster_hls_fiber_map_V_rom' using auto ROMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_allc_c_e_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_allc_c_t_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_tmp_vxs_ch_e_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_tmp_vxs_ch_t_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_tmp_fiber_ch_e_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_tmp_fiber_ch_t_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_all_fadc_hits_e_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_all_fadc_hits_t_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_allc_c_x_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_allc_c_y_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_allc_c_e_V_1_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_allc_c_t_V_1_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_nearby_hit_pre_e_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_nearby_hit_pre_t_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_allf_bins_t_V_ram (RAM)' using auto RAMs.
-INFO: [RTMG 210-278] Implementing memory 'hcal_cluster_hls_allf_bins_valid_V_ram (RAM)' using auto RAMs.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 11.41 seconds. CPU system time: 0.31 seconds. Elapsed time: 11.73 seconds; current allocated memory: 507.006 MB.
-INFO: [VHDL 208-304] Generating VHDL RTL for hcal_cluster_hls.
-INFO: [VLOG 209-307] Generating Verilog RTL for hcal_cluster_hls.
-INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
-INFO: [HLS 200-789] **** Estimated Fmax: 114.86 MHz
-INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 758.71 seconds. CPU system time: 1.79 seconds. Elapsed time: 760.84 seconds; current allocated memory: 508.229 MB.
-INFO: [HLS 200-112] Total CPU user time: 762.45 seconds. Total CPU system time: 2.67 seconds. Total elapsed time: 763.79 seconds; peak allocated memory: 507.006 MB.
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+make: `csim.exe' is up to date.
+open file: /home/hanjie/GEp/GEp_trigger/data/frame0.txt
+0 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame1.txt
+1 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame2.txt
+2 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame3.txt
+3 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame4.txt
+4 288
+open file: /home/hanjie/GEp/GEp_trigger/data/frame5.txt
+5 288
+frame  0
+nclust: 0
+frame  1
+nclust: 0
+frame  2
+nclust 1 at (21, 5), e=9201, t=4
+nclust: 1
+frame  3
+nclust 1 at (3, 4), e=7688, t=4
+nclust: 1
+frame  4
+nclust 1 at (22, 6), e=5698, t=3
+nclust: 1
+frame  5
+nclust 1 at (16, 10), e=9446, t=0
+nclust: 1
+Find cluster at frame 2: ch=244, e=9201, t=48, x=21, y=5, nhits=3
+Find cluster at frame 3: ch=27, e=7688, t=80, x=3, y=4, nhits=3
+Find cluster at frame 4: ch=257, e=5698, t=108, x=22, y=6, nhits=3
+Find cluster at frame 5: ch=189, e=9446, t=128, x=16, y=10, nhits=4
+Fiber out at frame 2: ch=62, t=48
+Fiber out at frame 3: ch=7, t=80
+Fiber out at frame 5: ch=46, t=128
+The maximum depth reached by any of the 3 hls::stream() instances in the design is 6
+   Generating dot files
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.95 seconds. CPU system time: 0.25 seconds. Elapsed time: 2.16 seconds; current allocated memory: 101.569 MB.
