@@ -29,18 +29,18 @@ int main(int argc, char *argv[])
         continue;
 
       int nn=0;
-      while( !infile.eof() && nn<288) 
+      while( !infile.eof() && nn<NCHAN_TOT) 
       {
          int ee,tt;
          infile>>ee;
          infile>>tt;
-         if(nn<256){
+         if(nn<NCHAN_CRATE){
             new_hits.vxs_ch[nn].e = (ap_uint<14>)ee;
             new_hits.vxs_ch[nn].t = (ap_uint<3>)tt;
          }
          else{
-            new_hits.fiber_ch[nn-256].e = (ap_uint<14>)ee;
-            new_hits.fiber_ch[nn-256].t = (ap_uint<3>)tt;
+            new_hits.fiber_ch[nn-NCHAN_CRATE].e = (ap_uint<14>)ee;
+            new_hits.fiber_ch[nn-NCHAN_CRATE].t = (ap_uint<3>)tt;
          }
          nn++;
       }
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
   nn=0;
   while(!s_cluster_all.empty()){
      cluster_all_t cc = s_cluster_all.read();
-     for(int ii=0; ii<288; ii++){
+     for(int ii=0; ii<NCHAN_TOT; ii++){
          if(cc.c[ii].e>0){
             int tmpe = cc.c[ii].e.to_uint();
             int tmpt = cc.c[ii].t.to_uint()*4+(nn-1)*8*4;

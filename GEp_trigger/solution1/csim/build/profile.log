@@ -1,8 +1,0 @@
-/opt/Xilinx/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/llvm-profdata merge -output=code.profdata *.profraw
-/opt/Xilinx/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link -o LinkFile.bc pobj/hcal_cluster_hls_tb.bc pobj/hcal_cluster_hls.bc -f; \
-mkdir -p /home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/.autopilot/db/dot ; \
-cp -r pobj /home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/.autopilot/db/dot ; \
-cp LinkFile.bc /home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/.autopilot/db/dot ; \
-cd /home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/.autopilot/db/dot ; \
-/opt/Xilinx/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/opt -dot-callgraph-hls -cfg-hier-userfilelist "/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls_tb.cpp /home/hanjie/GEp/GEp_trigger/hcal_cluster_hls.cpp" -csim-top-function-name=hcal_cluster_hls LinkFile.bc -o LinkFile_fid.bc ; \
-/opt/Xilinx/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/opt -dot-cfg-hier-only -cfg-hier-userfilelist "/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls_tb.cpp /home/hanjie/GEp/GEp_trigger/hcal_cluster_hls.cpp" -cfg-hier-type csim LinkFile_fid.bc -o LinkFile_pp.bc ; 
