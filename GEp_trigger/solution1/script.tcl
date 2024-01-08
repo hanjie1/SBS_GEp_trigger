@@ -7,12 +7,12 @@
 open_project GEp_trigger
 set_top hcal_cluster_hls
 add_files hcal_cluster_hls.cpp
-add_files -tb hcal_cluster_hls_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
+add_files -tb hcal_cluster_hls_tb.cpp
 open_solution "solution1" -flow_target vivado
-set_part {xc7vx550t-ffg1927-1}
+set_part {xc7vx550tffg1927-1}
 create_clock -period 32 -name default
-source "./GEp_trigger/solution1/directives.tcl"
-csim_design -profile
+#source "./GEp_trigger/solution1/directives.tcl"
+csim_design
 csynth_design
 cosim_design
 export_design -format ip_catalog

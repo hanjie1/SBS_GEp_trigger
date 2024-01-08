@@ -7,6 +7,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+
   ap_uint<3> hit_dt = 3;
   ap_uint<13> seed_threshold = 4000;
   ap_uint<16> cluster_threshold = 6000;
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
       fadc_hits_fiber new_hits_fiber;
 
       char filename[200];
-      snprintf(filename, 200, "%s%d.txt","/home/hanjie/GEp/GEp_trigger/data/frame",ii);
+      snprintf(filename, 200, "%s%d.txt","/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame",ii);
       ifstream infile(filename);
       if(infile.is_open())
         printf("open file: %s\n",filename);
@@ -70,10 +71,10 @@ int main(int argc, char *argv[])
   }
 
   nn=0;
-  for(int ii=0; ii<4; ii++){
-    while(!s_cluster_all[ii].empty()){
+  while(!s_cluster_all[0].empty()){
+     for(int ii=0; ii<4; ii++){
        cluster_all_t cc = s_cluster_all[ii].read();
-       for(int jj=0; jj<NCHAN_TOT; jj++){
+       for(int jj=0; jj<(NCHAN_TOT/4); jj++){
            if(cc.c[jj].e>0){
               int tmpe = cc.c[jj].e.to_uint();
               int tmpt = cc.c[jj].t.to_uint()*4+(nn-1)*8*4;
@@ -81,11 +82,11 @@ int main(int argc, char *argv[])
               int tmpy = cc.c[jj].y.to_uint();
               int tmpn = cc.c[jj].nhits.to_uint();
   
-              printf("Find cluster at frame %d: ch=%d, e=%d, t=%d, x=%d, y=%d, nhits=%d\n",nn,jj,tmpe,tmpt,tmpx,tmpy,tmpn);
+              printf("Find cluster at frame %d: ch=%d, e=%d, t=%d, x=%d, y=%d, nhits=%d\n",nn,jj+ii*NCHAN_TOT/4,tmpe,tmpt,tmpx,tmpy,tmpn);
            }
        }
-       nn++;
-    }
+     }
+     nn++;
   }
 
   nn=0;

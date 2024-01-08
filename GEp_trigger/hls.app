@@ -1,12 +1,12 @@
-<project xmlns="com.autoesl.autopilot.project" name="GEp_trigger" top="hcal_cluster_hls" projectType="C/C++">
+<project xmlns="com.autoesl.autopilot.project" top="hcal_cluster_hls" name="GEp_trigger" projectType="C/C++">
     <includePaths/>
     <libraryPaths/>
     <Simulation>
-        <SimFlow name="csim" profile="true" csimMode="0" lastCsimMode="0"/>
+        <SimFlow name="csim" csimMode="0" lastCsimMode="0"/>
     </Simulation>
     <files xmlns="">
-        <file name="../../hcal_cluster_hls_tb.cpp" sc="0" tb="1" cflags="-Wno-unknown-pragmas" csimflags="" blackbox="false"/>
         <file name="hcal_cluster_hls.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="../../hcal_cluster_hls_tb.cpp" sc="0" tb="1" cflags="-Wno-unknown-pragmas" csimflags="" blackbox="false"/>
     </files>
     <solutions xmlns="">
         <solution name="solution1" status="active"/>

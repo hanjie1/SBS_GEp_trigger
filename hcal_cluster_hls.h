@@ -4,9 +4,9 @@
 #include <ap_int.h>
 #include <hls_stream.h>
 
-#define NCHAN_CRATE 10
-#define NCHAN_FIBER 10
-#define NCHAN_TOT NCHAN_CRATE+NCHAN_FIBER
+#define NCHAN_CRATE 256
+#define NCHAN_FIBER 32
+#define NCHAN_TOT (NCHAN_CRATE+NCHAN_FIBER)
 
 // hit_t:
 // - every 32ns each fadc channel reports 13 bit energy, and 3 bit hit time (time offset in current 32ns clock: 0=0ns, 1=4ns, 2=8ns, ..., 7=28ns)

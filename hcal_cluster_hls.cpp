@@ -38,7 +38,6 @@ void hcal_cluster_hls(
    
   for(ch=0; ch<NCHAN_FIBER; ch++)
       all_fadc_hits[ch+NCHAN_CRATE] = fiber_hits.fiber_ch[ch];
-
 /*
  for(ch=0; ch<288; ch++){
    cout<<ch<<"  "<<all_fadc_hits_pre_pre[ch].e<<"  "<<all_fadc_hits_pre_pre[ch].t<<endl;
@@ -54,7 +53,7 @@ void hcal_cluster_hls(
 */
 
   cluster_all_t allc[4];
-  
+
   for(ch=0; ch<NCHAN_TOT;ch++){
       hit_t nearby_hit_pre[9];
       hit_t nearby_hit_cur[9];
@@ -63,7 +62,7 @@ void hcal_cluster_hls(
       nearby_hit_pre[0] = all_fadc_hits_pre_pre[ch];
       nearby_hit_cur[0] = all_fadc_hits_pre[ch];
       nearby_hit_aft[0] = all_fadc_hits[ch];
-  
+
       ap_uint<4> ipos=0;
  
       for(ipos=0; ipos<8; ipos++){
@@ -79,10 +78,11 @@ void hcal_cluster_hls(
             nearby_hit_aft[ipos+1].e=0;
             nearby_hit_aft[ipos+1].t=0;
          }
-
-         nearby_hit_pre[ipos+1]=all_fadc_hits_pre_pre[nearby_ch];
-         nearby_hit_cur[ipos+1]=all_fadc_hits_pre[nearby_ch];
-         nearby_hit_aft[ipos+1]=all_fadc_hits[nearby_ch];
+         else{
+            nearby_hit_pre[ipos+1]=all_fadc_hits_pre_pre[nearby_ch];
+            nearby_hit_cur[ipos+1]=all_fadc_hits_pre[nearby_ch];
+            nearby_hit_aft[ipos+1]=all_fadc_hits[nearby_ch];
+         }
        }
      
       ap_uint<2> sec = ch/(NCHAN_TOT/4);
@@ -95,7 +95,9 @@ void hcal_cluster_hls(
          case 2: allc[2].c[ch-2*NCHAN_TOT/4] = tmpc; break;
          case 3: allc[3].c[ch-3*NCHAN_TOT/4] = tmpc; break;
       }
+
   }
+
      
   // save the previous fadc_hits
 
@@ -121,7 +123,7 @@ void hcal_cluster_hls(
       case 3: tmpc = allc[3].c[ch-3*NCHAN_TOT/4]; break;
     }
 
-    if(tmpc.nhits>1){
+    if(tmpc.nhits>0){
       nclust++;
       printf("nclust %d at (%d, %d), e=%d, t=%d\n",nclust,tmpc.x.to_uint(),tmpc.y.to_uint(),tmpc.e.to_uint(),tmpc.t.to_uint());
     }

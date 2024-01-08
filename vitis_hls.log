@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/daqfs/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'hanjie' on host 'indra-s1.jlab.org' (Linux_x86_64 version 3.10.0-862.14.4.el7.x86_64) on Mon Jan 08 13:38:26 EST 2024
+INFO: [HLS 200-10] For user 'hanjie' on host 'indra-s1.jlab.org' (Linux_x86_64 version 3.10.0-862.14.4.el7.x86_64) on Mon Jan 08 15:05:17 EST 2024
 INFO: [HLS 200-10] In directory '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger'
 INFO: [HLS 200-2053] The vitis_hls executable is being deprecated. Consider using vitis-run --mode hls --tcl
 Sourcing Tcl script '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csim.tcl'
@@ -9,7 +9,7 @@ INFO: [HLS 200-10] Opening project '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigg
 INFO: [HLS 200-1510] Running: set_top hcal_cluster_hls 
 INFO: [HLS 200-1510] Running: add_files hcal_cluster_hls.cpp 
 INFO: [HLS 200-10] Adding design file 'hcal_cluster_hls.cpp' to the project
-INFO: [HLS 200-1510] Running: add_files -tb hcal_cluster_hls_tb.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-1510] Running: add_files -tb hcal_cluster_hls_tb.cpp 
 INFO: [HLS 200-10] Adding test bench file 'hcal_cluster_hls_tb.cpp' to the project
 INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
 INFO: [HLS 200-10] Opening solution '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1'.
@@ -17,75 +17,51 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
 INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
 INFO: [HLS 200-1505] Using flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
-INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: set_part xc7vx550tffg1927-1 
 INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
-INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
-INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
-INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
-WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
-INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
 INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
 INFO: [HLS 200-2036] Building debug C Simulation binaries
    Compiling ../../../../hcal_cluster_hls_tb.cpp in debug mode
-   Compiling ../../../../hcal_cluster_hls.cpp in debug mode
    Generating csim.exe
-In file included from ../../../../hcal_cluster_hls_tb.cpp:5:
-In file included from ../../../../hcal_cluster_hls.h:4:
-In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_int.h:10:
-In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_common.h:666:
-/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_private.h:11:32: warning: unknown warning group '-Wint-in-bool-context', ignored [-Wunknown-warning-option]
-#pragma GCC diagnostic ignored "-Wint-in-bool-context"
-                               ^
-/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_private.h:12:32: warning: unknown warning group '-Wmaybe-uninitialized', ignored [-Wunknown-warning-option]
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
-                               ^
-In file included from ../../../../hcal_cluster_hls_tb.cpp:5:
-In file included from ../../../../hcal_cluster_hls.h:4:
-In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_int.h:11:
-/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_int_base.h:23:32: warning: unknown warning group '-Wint-in-bool-context', ignored [-Wunknown-warning-option]
-#pragma GCC diagnostic ignored "-Wint-in-bool-context"
-                               ^
-/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_int_base.h:24:32: warning: unknown warning group '-Wmaybe-uninitialized', ignored [-Wunknown-warning-option]
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
-                               ^
-4 warnings generated.
-In file included from ../../../../hcal_cluster_hls.cpp:1:
-In file included from ../../../../hcal_cluster_hls.h:4:
-In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_int.h:10:
-In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_common.h:666:
-/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_private.h:11:32: warning: unknown warning group '-Wint-in-bool-context', ignored [-Wunknown-warning-option]
-#pragma GCC diagnostic ignored "-Wint-in-bool-context"
-                               ^
-/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_private.h:12:32: warning: unknown warning group '-Wmaybe-uninitialized', ignored [-Wunknown-warning-option]
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
-                               ^
-In file included from ../../../../hcal_cluster_hls.cpp:1:
-In file included from ../../../../hcal_cluster_hls.h:4:
-In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_int.h:11:
-/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_int_base.h:23:32: warning: unknown warning group '-Wint-in-bool-context', ignored [-Wunknown-warning-option]
-#pragma GCC diagnostic ignored "-Wint-in-bool-context"
-                               ^
-/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_int_base.h:24:32: warning: unknown warning group '-Wmaybe-uninitialized', ignored [-Wunknown-warning-option]
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
-                               ^
-4 warnings generated.
-/daqfs/Xilinx/Vivado/2023.2/tps/lnx64/binutils-2.37/bin/ld: obj/hcal_cluster_hls.o: in function `thread<void (&)(), void>':
-/daqfs/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/thread:118: undefined reference to `pthread_create'
-clang++: error: linker command failed with exit code 1 (use -v to see invocation)
-make: *** [csim.exe] Error 1
-ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame0.txt
+0 288
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame1.txt
+1 288
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame2.txt
+2 288
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame3.txt
+3 288
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame4.txt
+4 288
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame5.txt
+5 288
+frame  0
+nclust: 0
+frame  1
+nclust: 0
+frame  2
+nclust 1 at (21, 5), e=9201, t=4
+nclust: 1
+frame  3
+nclust 1 at (3, 4), e=7688, t=4
+nclust: 1
+frame  4
+nclust 1 at (22, 6), e=5698, t=3
+nclust: 1
+frame  5
+nclust 1 at (16, 10), e=9446, t=0
+nclust: 1
+Find cluster at frame 2: ch=244, e=9201, t=48, x=21, y=5, nhits=3
+Find cluster at frame 3: ch=27, e=7688, t=80, x=3, y=4, nhits=3
+Find cluster at frame 4: ch=257, e=5698, t=108, x=22, y=6, nhits=3
+Find cluster at frame 5: ch=189, e=9446, t=128, x=16, y=10, nhits=4
+Fiber out at frame 2: ch=62, t=48
+Fiber out at frame 3: ch=7, t=80
+Fiber out at frame 5: ch=46, t=128
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 6
+INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.29 seconds. CPU system time: 0.38 seconds. Elapsed time: 3.8 seconds; current allocated memory: 0.000 MB.
-4
-    while executing
-"source /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csim.tcl"
-    invoked from within
-"hls::main /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csim.tcl"
-    ("uplevel" body line 1)
-    invoked from within
-"uplevel 1 hls::main {*}$newargs"
-    (procedure "hls_proc" line 16)
-    invoked from within
-"hls_proc [info nameofexecutable] $argv"
-INFO: [HLS 200-112] Total CPU user time: 5.51 seconds. Total CPU system time: 0.82 seconds. Total elapsed time: 6.61 seconds; peak allocated memory: 409.359 MB.
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 2.46 seconds. CPU system time: 0.39 seconds. Elapsed time: 2.97 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-112] Total CPU user time: 5.01 seconds. Total CPU system time: 0.85 seconds. Total elapsed time: 6.12 seconds; peak allocated memory: 407.379 MB.

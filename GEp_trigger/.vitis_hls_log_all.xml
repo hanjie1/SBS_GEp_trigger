@@ -2,38 +2,22 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
-      <synLog/>
-      <simLog/>
-      <mgLog/>
-      <packageLog/>
       <csimLog>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T13:38:33.020-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T13:37:30.483-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T13:36:39.654-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T13:35:40.932-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T12:17:22.073-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T12:14:30.753-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T12:04:53.847-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T11:50:01.471-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:32:43.325-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:23:33.360-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:19:57.709-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:18:49.124-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:16:25.621-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:15:02.955-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:12:19.026-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:09:06.744-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:07:46.401-0500"/>
       </csimLog>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
-      <synLog/>
-      <simLog/>
-      <mgLog/>
-      <packageLog/>
-      <csimLog>
-        <logs message="WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T13:38:29.215-0500" type="Warning"/>
-        <logs message="WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T13:37:28.642-0500" type="Warning"/>
-        <logs message="WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T13:36:37.510-0500" type="Warning"/>
-        <logs message="WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T13:35:38.803-0500" type="Warning"/>
-        <logs message="WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T12:17:18.915-0500" type="Warning"/>
-        <logs message="WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T12:14:29.065-0500" type="Warning"/>
-        <logs message="WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T12:04:49.836-0500" type="Warning"/>
-        <logs message="WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T11:49:59.167-0500" type="Warning"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>
