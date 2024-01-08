@@ -51,6 +51,18 @@
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.647415490" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_sysc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include/etc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/hanjie/GEp/GEp_trigger"/>
@@ -87,6 +99,18 @@
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.2024655699" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_sysc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include/etc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/hanjie/GEp/GEp_trigger"/>
@@ -119,6 +143,8 @@
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.link.option.paths.2018332825" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
                                     									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/lib"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/systemc/lib"/>
                                     								
                                 </option>
@@ -132,6 +158,8 @@
                             <tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1362893311" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.2089887587" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/lib"/>
                                     									
                                     <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/systemc/lib"/>
                                     								
@@ -169,17 +197,17 @@
                             							
                             <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1849261724" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include/etc"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc"/>
                                 								
                                 <listOptionValue builtIn="false" value="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger"/>
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_sysc"/>
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/auto_cc/include"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include"/>
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include/ap_sysc"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include"/>
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/systemc/include"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include"/>
                                 							
                             </option>
                             							
@@ -253,6 +281,18 @@
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1035678264" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_sysc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include/etc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/hanjie/GEp/GEp_trigger"/>
@@ -279,6 +319,18 @@
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.591991573" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_sysc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include/etc"/>
                                     									
                                     <listOptionValue builtIn="false" value="/home/hanjie/GEp/GEp_trigger"/>
@@ -301,6 +353,8 @@
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.link.option.paths.82044696" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
                                     									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/lib"/>
+                                    									
                                     <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/systemc/lib"/>
                                     								
                                 </option>
@@ -314,6 +368,8 @@
                             <tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.957999103" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
                                 								
                                 <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.626316110" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+                                    									
+                                    <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/lib"/>
                                     									
                                     <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/systemc/lib"/>
                                     								
@@ -351,17 +407,17 @@
                             							
                             <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.83706330" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include/etc"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc"/>
                                 								
                                 <listOptionValue builtIn="false" value="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger"/>
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_sysc"/>
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/auto_cc/include"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/include"/>
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/include/ap_sysc"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include"/>
                                 								
-                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/systemc/include"/>
+                                <listOptionValue builtIn="false" value="/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/systemc/include"/>
                                 							
                             </option>
                             							

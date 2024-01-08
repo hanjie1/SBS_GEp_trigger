@@ -34,8 +34,13 @@ typedef struct
 typedef struct
 {
   hit_t vxs_ch[NCHAN_CRATE];
+} fadc_hits_vxs;
+
+typedef struct
+{
   hit_t fiber_ch[NCHAN_FIBER];
-} fadc_hits_t;
+} fadc_hits_fiber;
+
 
 typedef struct
 {
@@ -66,19 +71,20 @@ typedef struct
 
 typedef struct
 {
-  cluster_t c[NCHAN_TOT];
+  cluster_t c[NCHAN_TOT/4];
 } cluster_all_t;
 
 void hcal_cluster_hls(
     ap_uint<3> hit_dt,
     ap_uint<13> seed_threshold,
     ap_uint<16> cluster_threshold,
-    hls::stream<fadc_hits_t> &s_fadc_hits,
+    hls::stream<fadc_hits_vxs> &s_fadc_hits_vxs,
+    hls::stream<fadc_hits_fiber> &s_fadc_hits_fiber,
     hls::stream<fiber_bins_t> &s_fiberout,
-    hls::stream<cluster_all_t> &s_cluster_all
+    hls::stream<cluster_all_t> (&s_cluster_all)[4]
 );
 
-fiber_bins_t FiberOut(cluster_all_t allc, ap_uint<16> cluster_threshold);
+fiber_bins_t FiberOut(cluster_all_t allc[4], ap_uint<16> cluster_threshold);
 ap_uint<5> Find_block(ap_uint<9> ch, ap_uint<1> dim);
 
 ap_uint<9> Find_channel(ap_uint<5> nx, ap_uint<4> ny);

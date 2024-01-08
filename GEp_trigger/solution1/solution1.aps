@@ -64,8 +64,6 @@
         <TargetInfo value="xc7vx550t:-ffg1927:-1"/>
     </targetInfo>
     <libraryList>
-        <library name="DefaultPlatform" value="xilinx/virtex7/virtex7"/>
-        <library name="DefaultPlatform" value="xilinx/virtex7/virtex7_fpv6"/>
         <library value="xilinx/virtex7/virtex7" name="DefaultPlatform"/>
     </libraryList>
     <clockList>

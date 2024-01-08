@@ -12,12 +12,14 @@ void hcal_cluster_hls(
     ap_uint<3> hit_dt,
     ap_uint<13> seed_threshold,
     ap_uint<16> cluster_threshold,
-    hls::stream<fadc_hits_t> &s_fadc_hits,
+    hls::stream<fadc_hits_vxs> &s_fadc_hits_vxs,
+    hls::stream<fadc_hits_fiber> &s_fadc_hits_fiber,
     hls::stream<fiber_bins_t> &s_fiberout,
-    hls::stream<cluster_all_t> &s_cluster_all
+    hls::stream<cluster_all_t> (&s_cluster_all)[4]
   )
 {
-  fadc_hits_t fadc_hits = s_fadc_hits.read();
+  fadc_hits_vxs vxs_hits = s_fadc_hits_vxs.read();
+  fadc_hits_fiber fiber_hits = s_fadc_hits_fiber.read();
 
 //#ifndef __SYNTHESIS__  
 //  // Initialize for simulation only (creates a problem for synthesis scheduling)
@@ -32,10 +34,10 @@ void hcal_cluster_hls(
 
   ap_uint<9> ch=0;
   for(ch=0; ch<NCHAN_CRATE; ch++)
-      all_fadc_hits[ch] = fadc_hits.vxs_ch[ch];
+      all_fadc_hits[ch] = vxs_hits.vxs_ch[ch];
    
   for(ch=0; ch<NCHAN_FIBER; ch++)
-      all_fadc_hits[ch+NCHAN_CRATE] = fadc_hits.fiber_ch[ch];
+      all_fadc_hits[ch+NCHAN_CRATE] = fiber_hits.fiber_ch[ch];
 
 /*
  for(ch=0; ch<288; ch++){
@@ -51,7 +53,7 @@ void hcal_cluster_hls(
  }
 */
 
-  cluster_all_t allc;
+  cluster_all_t allc[4];
   
   for(ch=0; ch<NCHAN_TOT;ch++){
       hit_t nearby_hit_pre[9];
@@ -82,10 +84,17 @@ void hcal_cluster_hls(
          nearby_hit_cur[ipos+1]=all_fadc_hits_pre[nearby_ch];
          nearby_hit_aft[ipos+1]=all_fadc_hits[nearby_ch];
        }
-      
-
-      allc.c[ch] = Find_cluster(nearby_hit_pre, nearby_hit_cur, nearby_hit_aft, hit_dt, seed_threshold, Find_block(ch,0), Find_block(ch,1));
-
+     
+      ap_uint<2> sec = ch/(NCHAN_TOT/4);
+      cluster_t tmpc;
+      tmpc = Find_cluster(nearby_hit_pre, nearby_hit_cur, nearby_hit_aft, hit_dt, seed_threshold, Find_block(ch,0), Find_block(ch,1));
+     
+      switch(sec){
+         case 0: allc[0].c[ch] = tmpc; break;
+         case 1: allc[1].c[ch-NCHAN_TOT/4] = tmpc; break;
+         case 2: allc[2].c[ch-2*NCHAN_TOT/4] = tmpc; break;
+         case 3: allc[3].c[ch-3*NCHAN_TOT/4] = tmpc; break;
+      }
   }
      
   // save the previous fadc_hits
@@ -102,15 +111,29 @@ void hcal_cluster_hls(
 #ifndef __SYNTHESIS__
   int nclust = 0;
   for(ch=0; ch<NCHAN_TOT;ch++){
-    if(allc.c[ch].nhits>1){
+    int sec = ch/(NCHAN_TOT/4);
+
+    cluster_t tmpc; 
+    switch(sec){
+      case 0: tmpc = allc[0].c[ch]; break;
+      case 1: tmpc = allc[1].c[ch-NCHAN_TOT/4]; break;
+      case 2: tmpc = allc[2].c[ch-2*NCHAN_TOT/4]; break;
+      case 3: tmpc = allc[3].c[ch-3*NCHAN_TOT/4]; break;
+    }
+
+    if(tmpc.nhits>1){
       nclust++;
-      printf("nclust %d at (%d, %d), e=%d, t=%d\n",nclust,allc.c[ch].x.to_uint(),allc.c[ch].y.to_uint(),allc.c[ch].e.to_uint(),allc.c[ch].t.to_uint());
+      printf("nclust %d at (%d, %d), e=%d, t=%d\n",nclust,tmpc.x.to_uint(),tmpc.y.to_uint(),tmpc.e.to_uint(),tmpc.t.to_uint());
     }
   }
   printf("nclust: %d\n",nclust);
 #endif
 
-  s_cluster_all.write(allc);
+  s_cluster_all[0].write(allc[0]);
+  s_cluster_all[1].write(allc[1]);
+  s_cluster_all[2].write(allc[2]);
+  s_cluster_all[3].write(allc[3]);
+
   fiber_bins_t fiberout;
   fiberout = FiberOut(allc, cluster_threshold);
   s_fiberout.write(fiberout);
@@ -127,7 +150,7 @@ ap_uint<7> fiber_map[288]={
 };
 
 
-fiber_bins_t FiberOut(cluster_all_t allc, ap_uint<16> cluster_threshold){
+fiber_bins_t FiberOut(cluster_all_t allc[4], ap_uint<16> cluster_threshold){
 
   fiber_bins_t allf;
   ap_uint<8> fiber_ch=0; 
@@ -138,14 +161,25 @@ fiber_bins_t FiberOut(cluster_all_t allc, ap_uint<16> cluster_threshold){
 
   ap_uint<9> ch=0;
   for(ch=0; ch<NCHAN_TOT;ch++){
-     if( allc.c[ch].e>cluster_threshold ){
+
+      ap_uint<2> sec = ch/(NCHAN_TOT/4);
+
+      cluster_t tmpc; 
+      switch(sec){
+        case 0: tmpc = allc[0].c[ch]; break;
+        case 1: tmpc = allc[1].c[ch-NCHAN_TOT/4]; break;
+        case 2: tmpc = allc[2].c[ch-2*NCHAN_TOT/4]; break;
+        case 3: tmpc = allc[3].c[ch-3*NCHAN_TOT/4]; break;
+      }
+
+     if( tmpc.e>cluster_threshold ){
          ap_uint<7> fiber_bin = fiber_map[ch];
        
          ap_uint<3> newt=0; 
          if(allf.bins[fiber_bin].valid==1)
-            newt = (allf.bins[fiber_bin].t>allc.c[ch].t)?allc.c[ch].t:allf.bins[fiber_bin].t;
+            newt = (allf.bins[fiber_bin].t>tmpc.t)?tmpc.t:allf.bins[fiber_bin].t;
          else
-            newt = allc.c[ch].t;
+            newt = tmpc.t;
          allf.bins[fiber_bin].t = newt;
          allf.bins[fiber_bin].valid = 1;
 

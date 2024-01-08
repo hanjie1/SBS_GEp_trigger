@@ -1,12 +1,15 @@
 # ==============================================================
-# Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
-# Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+# Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+# Tool Version Limit: 2023.10
+# Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+# Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+# 
 # ==============================================================
-set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/fpo_v7_0
-set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/fft_v9_1
-set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/fir_v7_0
-set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/tools/dds_v6_0
-set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2020.2/lnx64/csim
+set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/fpo_v7_1
+set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/fft_v9_1
+set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/fir_v7_0
+set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/tools/dds_v6_0
+set ::env(LD_LIBRARY_PATH) $::env(LD_LIBRARY_PATH):/daqfs/Xilinx/Vitis_HLS/2023.2/lnx64/csim
 ### C sim ###
 if {![file exists csim.exe]} {
   puts "@E C-simulation is not set up properly. Please re-run csim."
@@ -31,13 +34,6 @@ if {$ret || $err != ""} {
         } else {
             puts "@E Simulation failed."
         }
-        return -code error
-    }
-}
-if {[file exists $logfile]} {
-    set cmdret [catch {eval exec "grep \"Error:\" $logfile"} err]
-    if {$cmdret == 0} {
-        puts "@E Simulation failed."
         return -code error
     }
 }

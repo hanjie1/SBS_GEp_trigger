@@ -560,3 +560,187 @@ INFO: [XFORM 203-102] Partitioning array 'allc.c.nhits.V.2' (hcal_cluster_hls.cp
 INFO: [XFORM 203-102] Partitioning array 'nearby_hit_pre.e.V' (hcal_cluster_hls.cpp:57) automatically.
 INFO: [XFORM 203-102] Partitioning array 'nearby_hit_pre.t.V' (hcal_cluster_hls.cpp:57) automatically.
 INFO: [XFORM 203-102] Partitioning array 'nearby_hit_cur.e.V' (hcal_cluster_hls.cpp:58) automatically.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.22 seconds. CPU system time: 0.17 seconds. Elapsed time: 2.3 seconds; current allocated memory: 0.000 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 2.87 seconds. CPU system time: 0.31 seconds. Elapsed time: 4.03 seconds; current allocated memory: 0.000 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.42 seconds. CPU system time: 0.2 seconds. Elapsed time: 1.68 seconds; current allocated memory: 0.000 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 2.24 seconds. CPU system time: 0.28 seconds. Elapsed time: 3.16 seconds; current allocated memory: 0.000 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.67 seconds. CPU system time: 0.24 seconds. Elapsed time: 2.13 seconds; current allocated memory: 0.000 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.82 seconds. CPU system time: 0.22 seconds. Elapsed time: 2.15 seconds; current allocated memory: 0.000 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.55 seconds. CPU system time: 0.21 seconds. Elapsed time: 1.85 seconds; current allocated memory: 0.000 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csim_design -profile -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.29 seconds. CPU system time: 0.38 seconds. Elapsed time: 3.8 seconds; current allocated memory: 0.000 MB.

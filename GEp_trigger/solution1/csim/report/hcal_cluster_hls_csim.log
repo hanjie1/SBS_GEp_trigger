@@ -3,6 +3,49 @@ INFO: [SIM 4] CSIM will launch CLANG as the compiler.
    Compiling ../../../../hcal_cluster_hls_tb.cpp in debug mode
    Compiling ../../../../hcal_cluster_hls.cpp in debug mode
    Generating csim.exe
-The maximum depth reached by any of the 3 hls::stream() instances in the design is 0
-INFO: [SIM 1] CSim done with 0 errors.
+In file included from ../../../../hcal_cluster_hls_tb.cpp:5:
+In file included from ../../../../hcal_cluster_hls.h:4:
+In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_int.h:10:
+In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_common.h:666:
+/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_private.h:11:32: warning: unknown warning group '-Wint-in-bool-context', ignored [-Wunknown-warning-option]
+#pragma GCC diagnostic ignored "-Wint-in-bool-context"
+                               ^
+/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_private.h:12:32: warning: unknown warning group '-Wmaybe-uninitialized', ignored [-Wunknown-warning-option]
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+                               ^
+In file included from ../../../../hcal_cluster_hls_tb.cpp:5:
+In file included from ../../../../hcal_cluster_hls.h:4:
+In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_int.h:11:
+/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_int_base.h:23:32: warning: unknown warning group '-Wint-in-bool-context', ignored [-Wunknown-warning-option]
+#pragma GCC diagnostic ignored "-Wint-in-bool-context"
+                               ^
+/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_int_base.h:24:32: warning: unknown warning group '-Wmaybe-uninitialized', ignored [-Wunknown-warning-option]
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+                               ^
+4 warnings generated.
+In file included from ../../../../hcal_cluster_hls.cpp:1:
+In file included from ../../../../hcal_cluster_hls.h:4:
+In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_int.h:10:
+In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_common.h:666:
+/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_private.h:11:32: warning: unknown warning group '-Wint-in-bool-context', ignored [-Wunknown-warning-option]
+#pragma GCC diagnostic ignored "-Wint-in-bool-context"
+                               ^
+/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_private.h:12:32: warning: unknown warning group '-Wmaybe-uninitialized', ignored [-Wunknown-warning-option]
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+                               ^
+In file included from ../../../../hcal_cluster_hls.cpp:1:
+In file included from ../../../../hcal_cluster_hls.h:4:
+In file included from /daqfs/Xilinx/Vitis_HLS/2023.2/include/ap_int.h:11:
+/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_int_base.h:23:32: warning: unknown warning group '-Wint-in-bool-context', ignored [-Wunknown-warning-option]
+#pragma GCC diagnostic ignored "-Wint-in-bool-context"
+                               ^
+/daqfs/Xilinx/Vitis_HLS/2023.2/include/etc/ap_int_base.h:24:32: warning: unknown warning group '-Wmaybe-uninitialized', ignored [-Wunknown-warning-option]
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+                               ^
+4 warnings generated.
+/daqfs/Xilinx/Vivado/2023.2/tps/lnx64/binutils-2.37/bin/ld: obj/hcal_cluster_hls.o: in function `thread<void (&)(), void>':
+/daqfs/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/thread:118: undefined reference to `pthread_create'
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [csim.exe] Error 1
+ERR: [SIM 100] 'csim_design' failed: compilation error(s).
 INFO: [SIM 3] *************** CSIM finish ***************
