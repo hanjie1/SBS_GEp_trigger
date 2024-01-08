@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="hcal_cluster_hls.cpp" path="/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls.cpp"/>
+    <originFiles name="hcal_cluster_hls.cpp" path="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/hcal_cluster_hls.cpp"/>
   </source>
   <testbench>
-    <originFiles name="hcal_cluster_hls_tb.cpp" path="/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls_tb.cpp"/>
+    <originFiles name="hcal_cluster_hls_tb.cpp" path="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/hcal_cluster_hls_tb.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

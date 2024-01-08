@@ -490,3 +490,73 @@ Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
+INFO: [HLS 200-10] Setting target device to 'xc7vx550t-ffg1927-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -enable_flush hcal_cluster_hls 
+WARNING: [HLS 200-484] The 'set_directive_pipeline -enable_flush' command is deprecated and will be removed in a future release.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 207.548 MB.
+INFO: [HLS 200-10] Analyzing design file 'hcal_cluster_hls.cpp' ... 
+WARNING: [HLS 207-5522] The 'enable_flush' option of the 'HLS pipeline' directive or pragma is deprecated, and it is suggested to use style=flp as replacement.: hcal_cluster_hls.cpp:20:39
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.31 seconds. CPU system time: 0.37 seconds. Elapsed time: 4.31 seconds; current allocated memory: 208.827 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-131] Inlining function 'hls::stream<fadc_hits_t, 0>::read(fadc_hits_t&)' into 'hls::stream<fadc_hits_t, 0>::read()' (/daqfs/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:156:9)
+INFO: [HLS 214-131] Inlining function 'hls::stream<fadc_hits_t, 0>::read()' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:20:39)
+INFO: [HLS 214-131] Inlining function 'hls::stream<fiber_bins_t, 0>::write(fiber_bins_t const&)' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:116:14)
+INFO: [HLS 214-131] Inlining function 'hls::stream<cluster_all_t, 0>::write(cluster_all_t const&)' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:113:17)
+INFO: [HLS 214-178] Inlining function 'Find_block(ap_uint<9>, ap_uint<1>)' into 'Find_nearby(ap_uint<9>, ap_uint<3>)' (hcal_cluster_hls.cpp:193:0)
+INFO: [HLS 214-178] Inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' into 'Find_cluster(hit_t*, hit_t*, hit_t*, ap_uint<3>, ap_uint<13>, ap_uint<5>, ap_uint<4>)' (hcal_cluster_hls.cpp:222:0)
+INFO: [HLS 214-178] Inlining function 'Find_block(ap_uint<9>, ap_uint<1>)' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:19:0)
+INFO: [HLS 214-178] Inlining function 'FiberOut(cluster_all_t, ap_uint<16>)' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (hcal_cluster_hls.cpp:19:0)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i960.s_struct.cluster_all_ts' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (/daqfs/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i2048.s_struct.fiber_bins_ts' into 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_t, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0>&)' (/daqfs/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 7.17 seconds. CPU system time: 0.42 seconds. Elapsed time: 8.44 seconds; current allocated memory: 212.646 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 212.647 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.35 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.42 seconds; current allocated memory: 227.642 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 7.61 seconds. CPU system time: 0.02 seconds. Elapsed time: 7.67 seconds; current allocated memory: 242.317 MB.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'hcal_cluster_hls' (hcal_cluster_hls.cpp:12).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'Find_channel' (hcal_cluster_hls.cpp:180:7).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'Find_cluster' (hcal_cluster_hls.cpp:219:9).
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_34_1' (hcal_cluster_hls.cpp:33) in function 'hcal_cluster_hls' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_37_2' (hcal_cluster_hls.cpp:33) in function 'hcal_cluster_hls' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_56_3' (hcal_cluster_hls.cpp:57) in function 'hcal_cluster_hls' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_67_4' (hcal_cluster_hls.cpp:68) in function 'hcal_cluster_hls' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_93_5' (hcal_cluster_hls.cpp:33) in function 'hcal_cluster_hls' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_97_6' (hcal_cluster_hls.cpp:33) in function 'hcal_cluster_hls' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_134_1' (hcal_cluster_hls.cpp:133) in function 'hcal_cluster_hls' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_140_2' (hcal_cluster_hls.cpp:139) in function 'hcal_cluster_hls' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_184_1' (hcal_cluster_hls.cpp:183) in function 'Find_channel' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_241_1' (hcal_cluster_hls.cpp:238) in function 'Find_cluster' completely with a factor of 8.
+INFO: [XFORM 203-102] Partitioning array 'nhits.V' (hcal_cluster_hls.cpp:234) automatically.
+INFO: [XFORM 203-102] Partitioning array 'allc.c.e.V' (hcal_cluster_hls.cpp:130) automatically.
+INFO: [XFORM 203-102] Partitioning array 'allc.c.t.V' (hcal_cluster_hls.cpp:130) automatically.
+INFO: [XFORM 203-102] Partitioning array 'tmp.vxs_ch.e.V' (/daqfs/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:155) automatically.
+INFO: [XFORM 203-102] Partitioning array 'tmp.vxs_ch.t.V' (/daqfs/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:155) automatically.
+INFO: [XFORM 203-102] Partitioning array 'tmp.fiber_ch.e.V' (/daqfs/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:155) automatically.
+INFO: [XFORM 203-102] Partitioning array 'tmp.fiber_ch.t.V' (/daqfs/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:155) automatically.
+INFO: [XFORM 203-102] Partitioning array 'allc.c.x.V.2' (hcal_cluster_hls.cpp:54) automatically.
+INFO: [XFORM 203-102] Partitioning array 'allc.c.y.V.2' (hcal_cluster_hls.cpp:54) automatically.
+INFO: [XFORM 203-102] Partitioning array 'allc.c.e.V.2' (hcal_cluster_hls.cpp:54) automatically.
+INFO: [XFORM 203-102] Partitioning array 'allc.c.t.V.2' (hcal_cluster_hls.cpp:54) automatically.
+INFO: [XFORM 203-102] Partitioning array 'allc.c.nhits.V.2' (hcal_cluster_hls.cpp:54) automatically.
+INFO: [XFORM 203-102] Partitioning array 'nearby_hit_pre.e.V' (hcal_cluster_hls.cpp:57) automatically.
+INFO: [XFORM 203-102] Partitioning array 'nearby_hit_pre.t.V' (hcal_cluster_hls.cpp:57) automatically.
+INFO: [XFORM 203-102] Partitioning array 'nearby_hit_cur.e.V' (hcal_cluster_hls.cpp:58) automatically.

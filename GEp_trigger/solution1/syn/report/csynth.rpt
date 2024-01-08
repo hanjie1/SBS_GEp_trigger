@@ -1,0 +1,26 @@
+
+
+================================================================
+== Synthesis Summary Report of 'hcal_cluster_hls'
+================================================================
++ General Information: 
+    * Date:           Mon Dec 18 11:01:18 2023
+    * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)
+    * Project:        GEp_trigger
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: virtex7
+    * Target device:  xc7vx550t-ffg1927-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------+--------+-------+---------+---------+----------+---------+------+----------+------+----+------------+------------+-----+
+    |           Modules          |  Issue |       | Latency | Latency | Iteration|         | Trip |          |      |    |            |            |     |
+    |           & Loops          |  Type  | Slack | (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |     LUT    | URAM|
+    +----------------------------+--------+-------+---------+---------+----------+---------+------+----------+------+----+------------+------------+-----+
+    |+ hcal_cluster_hls          |  Timing|   0.45|       19|  608.000|         -|       20|     -|  yes(flp)|     -|   -|  3076 (~0%)|  11245 (3%)|    -|
+    | + grp_Find_cluster_fu_618  |       -|  -0.18|        2|   64.000|         -|        1|     -|  yes(flp)|     -|   -|   784 (~0%)|  3259 (~0%)|    -|
+    | + grp_Find_cluster_fu_690  |       -|  -0.18|        2|   64.000|         -|        1|     -|  yes(flp)|     -|   -|   784 (~0%)|  3259 (~0%)|    -|
+    +----------------------------+--------+-------+---------+---------+----------+---------+------+----------+------+----+------------+------------+-----+
+

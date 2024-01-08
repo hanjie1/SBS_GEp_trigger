@@ -4,8 +4,8 @@
 #include <ap_int.h>
 #include <hls_stream.h>
 
-#define NCHAN_CRATE 256
-#define NCHAN_FIBER 32
+#define NCHAN_CRATE 10
+#define NCHAN_FIBER 10
 #define NCHAN_TOT NCHAN_CRATE+NCHAN_FIBER
 
 // hit_t:

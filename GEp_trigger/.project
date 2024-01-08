@@ -29,42 +29,42 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>/home/hanjie/GEp/GEp_trigger/GEp_trigger/.apc/.src</location>
+			<location>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>/home/hanjie/GEp/GEp_trigger/GEp_trigger/.apc/.tb</location>
+			<location>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>/home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/.tcls</location>
+			<location>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>source/hcal_cluster_hls.cpp</name>
 			<type>1</type>
-			<location>/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls.cpp</location>
+			<location>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/hcal_cluster_hls.cpp</location>
 		</link>
 		<link>
 			<name>testbench/hcal_cluster_hls_tb.cpp</name>
 			<type>1</type>
-			<location>/home/hanjie/GEp/GEp_trigger/hcal_cluster_hls_tb.cpp</location>
+			<location>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/hcal_cluster_hls_tb.cpp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>/home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/solution1.directive</location>
+			<location>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>/home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/directives.tcl</location>
+			<location>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>/home/hanjie/GEp/GEp_trigger/GEp_trigger/solution1/script.tcl</location>
+			<location>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

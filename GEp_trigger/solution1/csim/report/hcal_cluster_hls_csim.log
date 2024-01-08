@@ -1,10 +1,8 @@
 INFO: [SIM 2] *************** CSIM start ***************
-INFO: [SIM 4] CSIM will launch GCC as the compiler.
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
    Compiling ../../../../hcal_cluster_hls_tb.cpp in debug mode
-gcc: internal compiler error: Bus error (program cc1plus)
-Please submit a full bug report,
-with preprocessed source if appropriate.
-See <http://gcc.gnu.org/bugs.html> for instructions.
-make: *** [obj/hcal_cluster_hls_tb.o] Error 4
-ERR: [SIM 100] 'csim_design' failed: compilation error(s).
+   Compiling ../../../../hcal_cluster_hls.cpp in debug mode
+   Generating csim.exe
+The maximum depth reached by any of the 3 hls::stream() instances in the design is 0
+INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************
