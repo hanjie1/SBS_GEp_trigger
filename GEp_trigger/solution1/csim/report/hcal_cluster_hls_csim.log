@@ -1,6 +1,6 @@
 INFO: [SIM 2] *************** CSIM start ***************
-INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../hcal_cluster_hls_tb.cpp in debug mode
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../hcal_cluster_hls.cpp in debug mode
    Generating csim.exe
 open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame0.txt
 0 288

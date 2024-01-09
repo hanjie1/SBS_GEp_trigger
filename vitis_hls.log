@@ -1,15 +1,15 @@
 INFO: [HLS 200-10] Running '/daqfs/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'hanjie' on host 'indra-s1.jlab.org' (Linux_x86_64 version 3.10.0-862.14.4.el7.x86_64) on Mon Jan 08 15:05:17 EST 2024
+INFO: [HLS 200-10] For user 'hanjie' on host 'indra-s1.jlab.org' (Linux_x86_64 version 3.10.0-862.14.4.el7.x86_64) on Tue Jan 09 15:57:39 EST 2024
 INFO: [HLS 200-10] In directory '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger'
 INFO: [HLS 200-2053] The vitis_hls executable is being deprecated. Consider using vitis-run --mode hls --tcl
-Sourcing Tcl script '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csim.tcl'
-INFO: [HLS 200-1510] Running: source /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csim.tcl
+Sourcing Tcl script '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csynth.tcl'
+INFO: [HLS 200-1510] Running: source /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csynth.tcl
 INFO: [HLS 200-1510] Running: open_project GEp_trigger 
 INFO: [HLS 200-10] Opening project '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger'.
 INFO: [HLS 200-1510] Running: set_top hcal_cluster_hls 
 INFO: [HLS 200-1510] Running: add_files hcal_cluster_hls.cpp 
 INFO: [HLS 200-10] Adding design file 'hcal_cluster_hls.cpp' to the project
-INFO: [HLS 200-1510] Running: add_files -tb hcal_cluster_hls_tb.cpp 
+INFO: [HLS 200-1510] Running: add_files -tb hcal_cluster_hls_tb.cpp -cflags -lpthread -Wno-unknown-pragmas 
 INFO: [HLS 200-10] Adding test bench file 'hcal_cluster_hls_tb.cpp' to the project
 INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
 INFO: [HLS 200-10] Opening solution '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1'.
@@ -17,51 +17,238 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
 INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
 INFO: [HLS 200-1505] Using flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
-INFO: [HLS 200-1510] Running: set_part xc7vx550tffg1927-1 
+INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
 INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
-INFO: [HLS 200-1510] Running: csim_design -quiet 
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [HLS 200-2036] Building debug C Simulation binaries
-   Compiling ../../../../hcal_cluster_hls_tb.cpp in debug mode
-   Generating csim.exe
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame0.txt
-0 288
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame1.txt
-1 288
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame2.txt
-2 288
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame3.txt
-3 288
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame4.txt
-4 288
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame5.txt
-5 288
-frame  0
-nclust: 0
-frame  1
-nclust: 0
-frame  2
-nclust 1 at (21, 5), e=9201, t=4
-nclust: 1
-frame  3
-nclust 1 at (3, 4), e=7688, t=4
-nclust: 1
-frame  4
-nclust 1 at (22, 6), e=5698, t=3
-nclust: 1
-frame  5
-nclust 1 at (16, 10), e=9446, t=0
-nclust: 1
-Find cluster at frame 2: ch=244, e=9201, t=48, x=21, y=5, nhits=3
-Find cluster at frame 3: ch=27, e=7688, t=80, x=3, y=4, nhits=3
-Find cluster at frame 4: ch=257, e=5698, t=108, x=22, y=6, nhits=3
-Find cluster at frame 5: ch=189, e=9446, t=128, x=16, y=10, nhits=4
-Fiber out at frame 2: ch=62, t=48
-Fiber out at frame 3: ch=7, t=80
-Fiber out at frame 5: ch=46, t=128
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 6
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-111] Finished Command csim_design CPU user time: 2.46 seconds. CPU system time: 0.39 seconds. Elapsed time: 2.97 seconds; current allocated memory: 0.000 MB.
-INFO: [HLS 200-112] Total CPU user time: 5.01 seconds. Total CPU system time: 0.85 seconds. Total elapsed time: 6.12 seconds; peak allocated memory: 407.379 MB.
+INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -style flp hcal_cluster_hls 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.08 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.11 seconds; current allocated memory: 369.605 MB.
+INFO: [HLS 200-10] Analyzing design file 'hcal_cluster_hls.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.47 seconds. CPU system time: 0.53 seconds. Elapsed time: 4.13 seconds; current allocated memory: 369.605 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 10,879 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 53,272 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 33,474 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 33,274 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 31,508 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 232,433 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 27,683 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 27,690 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 44,421 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 45,155 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 33,202 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 21,647 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 20,939 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 19,343 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 17,272 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 17,142 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-377] Adding 'allc' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:155:14)
+INFO: [HLS 214-377] Adding 'ref.tmp180' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:155:14)
+INFO: [HLS 214-377] Adding 'allc' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:80:9)
+INFO: [HLS 214-377] Adding 'allc' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:79:9)
+INFO: [HLS 214-377] Adding 'allc' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:78:9)
+INFO: [HLS 214-377] Adding 'allc' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:77:9)
+INFO: [HLS 214-377] Adding 'fiber_hits' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:33:9)
+INFO: [HLS 214-377] Adding 'vxs_hits' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:30:9)
+INFO: [HLS 214-210] Disaggregating variable 'ref.tmp180'
+Resolution: For help on HLS 214-210 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'allc' (hcal_cluster_hls.cpp:75:17)
+Resolution: For help on HLS 214-210 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'fiber_hits' (hcal_cluster_hls.cpp:32:18)
+Resolution: For help on HLS 214-210 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'vxs_hits' (hcal_cluster_hls.cpp:29:17)
+Resolution: For help on HLS 214-210 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=214-210.html
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 's_fadc_hits_vxs' as it needs to be read/written in its entirety
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_123_8' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:123:21)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_119_7' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:119:21)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_83_5' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:83:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_96_6' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:96:24)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_48_2' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:48:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_45_1' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:45:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_179_2' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:179:21)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_173_1' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:173:21)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_298_1' is marked as complete unroll implied by the pipeline pragma (hcal_cluster_hls.cpp:298:23)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_123_8' (hcal_cluster_hls.cpp:123:21) in function 'hcal_cluster_hls' completely with a factor of 288 (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_119_7' (hcal_cluster_hls.cpp:119:21) in function 'hcal_cluster_hls' completely with a factor of 288 (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_83_5' (hcal_cluster_hls.cpp:83:19) in function 'hcal_cluster_hls' completely with a factor of 10 (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_96_6' (hcal_cluster_hls.cpp:96:24) in function 'hcal_cluster_hls' completely with a factor of 9 (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_48_2' (hcal_cluster_hls.cpp:48:20) in function 'hcal_cluster_hls' completely with a factor of 32 (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_45_1' (hcal_cluster_hls.cpp:45:20) in function 'hcal_cluster_hls' completely with a factor of 256 (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_179_2' (hcal_cluster_hls.cpp:179:21) in function 'FiberOut' completely with a factor of 288 (hcal_cluster_hls.cpp:162:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_173_1' (hcal_cluster_hls.cpp:173:21) in function 'FiberOut' completely with a factor of 128 (hcal_cluster_hls.cpp:162:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_298_1' (hcal_cluster_hls.cpp:298:23) in function 'Find_cluster' completely with a factor of 8 (hcal_cluster_hls.cpp:272:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_vxsLi0EEERNS4_I15fadc_hits_fiberLi0EEERNS4_I12fiber_bins_tLi0EEERA4_NS4_I13cluster_all_tLi0EEEE17all_fadc_hits_pre': Complete partitioning on dimension 1. (hcal_cluster_hls.cpp:38:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_vxsLi0EEERNS4_I15fadc_hits_fiberLi0EEERNS4_I12fiber_bins_tLi0EEERA4_NS4_I13cluster_all_tLi0EEEE21all_fadc_hits_pre_pre': Complete partitioning on dimension 1. (hcal_cluster_hls.cpp:35:0)
+INFO: [HLS 214-248] Applying array_partition to 'vxs_hits.e': Complete partitioning on dimension 1. (hcal_cluster_hls.cpp:29:17)
+INFO: [HLS 214-248] Applying array_partition to 'vxs_hits.t': Complete partitioning on dimension 1. (hcal_cluster_hls.cpp:29:17)
+INFO: [HLS 214-248] Applying array_partition to 'fiber_hits.e': Complete partitioning on dimension 1. (hcal_cluster_hls.cpp:32:18)
+INFO: [HLS 214-248] Applying array_partition to 'fiber_hits.t': Complete partitioning on dimension 1. (hcal_cluster_hls.cpp:32:18)
+INFO: [HLS 214-248] Applying array_partition to 'all_fadc_hits': Complete partitioning on dimension 1. (hcal_cluster_hls.cpp:41:8)
+INFO: [HLS 214-248] Applying array_partition to 'allc.x': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (hcal_cluster_hls.cpp:75:17)
+INFO: [HLS 214-248] Applying array_partition to 'allc.y': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (hcal_cluster_hls.cpp:75:17)
+INFO: [HLS 214-248] Applying array_partition to 'allc.e': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (hcal_cluster_hls.cpp:75:17)
+INFO: [HLS 214-248] Applying array_partition to 'allc.t': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (hcal_cluster_hls.cpp:75:17)
+INFO: [HLS 214-248] Applying array_partition to 'allc.nhits': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (hcal_cluster_hls.cpp:75:17)
+INFO: [HLS 214-248] Applying array_partition to 'nearby_hit_pre.e': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'nearby_hit_pre.t': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'nearby_hit_cur.e': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'nearby_hit_cur.t': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'nearby_hit_aft.e': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'nearby_hit_aft.t': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'ref.tmp180.0': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'ref.tmp180.1': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 's_cluster_all': Complete partitioning on dimension 1. (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_cluster_all_3' with compact=bit mode in 2304-bits (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_cluster_all_2' with compact=bit mode in 2304-bits (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_cluster_all_1' with compact=bit mode in 2304-bits (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_cluster_all_0' with compact=bit mode in 2304-bits (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_fiberout' with compact=bit mode in 512-bits (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_fadc_hits_fiber' with compact=bit mode in 512-bits (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_fadc_hits_vxs' with compact=bit mode in 4096-bits (hcal_cluster_hls.cpp:28:0)
+INFO: [HLS 214-364] Automatically inlining function 'Find_block(ap_uint<9>, ap_uint<1>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:104:99)
+INFO: [HLS 214-364] Automatically inlining function 'Find_block(ap_uint<9>, ap_uint<1>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:104:117)
+INFO: [HLS 214-364] Automatically inlining function 'Find_cluster(hit_t*, hit_t*, hit_t*, ap_uint<3>, ap_uint<13>, ap_uint<5>, ap_uint<4>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:104:14)
+INFO: [HLS 214-364] Automatically inlining function 'FiberOut(cluster_all_t*, ap_uint<16>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:155:14)
+INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:299:36)
+INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:306:36)
+INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:313:34)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 52.5 seconds. CPU system time: 0.82 seconds. Elapsed time: 54.23 seconds; current allocated memory: 369.605 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 369.605 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 1.11 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.2 seconds; current allocated memory: 433.605 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 9.34 seconds. CPU system time: 0.05 seconds. Elapsed time: 9.41 seconds; current allocated memory: 433.605 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:8:9) to (hcal_cluster_hls.cpp:159:1) in function 'hcal_cluster_hls'... converting 473 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'hcal_cluster_hls' (hcal_cluster_hls.cpp:8:15)...82 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 11.76 seconds. CPU system time: 0.05 seconds. Elapsed time: 11.83 seconds; current allocated memory: 497.605 MB.
+INFO: [XFORM 203-603] Evaluating the output(s) of a call to function '_ssdm_op_BitConcatenate.i2278.i1.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i27.i5.i32' (hcal_cluster_hls.cpp:150:20) in function 'hcal_cluster_hls' and propagating its result(s) since all actual argument(s) to the function are constants.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.65 seconds. CPU system time: 0 seconds. Elapsed time: 0.66 seconds; current allocated memory: 497.605 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'hcal_cluster_hls' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hcal_cluster_hls' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'hcal_cluster_hls'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'hcal_cluster_hls'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.21 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.29 seconds; current allocated memory: 561.605 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.54 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.64 seconds; current allocated memory: 561.605 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hcal_cluster_hls' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/hit_dt' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/seed_threshold' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/cluster_threshold' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_fadc_hits_vxs' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_fadc_hits_fiber' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_fiberout' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_cluster_all_0' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_cluster_all_1' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_cluster_all_2' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hcal_cluster_hls/s_cluster_all_3' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'hcal_cluster_hls' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_23' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_22' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_47' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_46' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_10' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_9' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_27' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_26' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_11' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_45' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_44' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_17' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_16' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_37' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_36' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_43' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_42' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_15' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_14' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_35' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_34' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_41' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_40' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_13' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_12' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_33' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_32' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_39' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_38' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_11' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_10' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_31' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_30' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_21' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_20' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_37' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_36' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_9' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_29' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_28' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_19' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_18' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_35' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_34' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_27' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_26' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_17' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_16' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_33' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_32' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_25' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_24' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_15' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_14' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_31' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_30' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_23' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_22' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_13' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_12' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_29' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_28' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_21' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_20' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_19' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_18' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_39' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_38' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_25' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_24' is power-on initialization.
+INFO: [RTGEN 206-104] Estimated max fanout for 'hcal_cluster_hls' is 9851 from HDL expression: ((1'b0 == ap_block_state2_pp0_stage0_iter1) & (1'b1 == ap_CS_iter1_fsm_state2))
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hcal_cluster_hls'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.27 seconds. CPU system time: 0.05 seconds. Elapsed time: 1.64 seconds; current allocated memory: 561.605 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.37 seconds. CPU system time: 0.19 seconds. Elapsed time: 1.88 seconds; current allocated memory: 625.605 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.61 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.67 seconds; current allocated memory: 625.605 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for hcal_cluster_hls.
+INFO: [VLOG 209-307] Generating Verilog RTL for hcal_cluster_hls.
+INFO: [HLS 200-789] **** Estimated Fmax: 43.81 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 83.95 seconds. CPU system time: 1.86 seconds. Elapsed time: 87.76 seconds; current allocated memory: 256.000 MB.
+INFO: [HLS 200-112] Total CPU user time: 86.78 seconds. Total CPU system time: 2.47 seconds. Total elapsed time: 91.61 seconds; peak allocated memory: 625.605 MB.

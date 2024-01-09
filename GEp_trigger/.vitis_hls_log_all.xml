@@ -2,22 +2,20 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
-      <csimLog>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:32:43.325-0500"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:23:33.360-0500"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:19:57.709-0500"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:18:49.124-0500"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:16:25.621-0500"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:15:02.955-0500"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:12:19.026-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:09:06.744-0500"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="GEp_trigger" solutionName="solution1" date="2024-01-08T14:07:46.401-0500"/>
-      </csimLog>
+      <synLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
-      <csimLog/>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_24' is power-on initialization." projectName="GEp_trigger" solutionName="solution1" date="2024-01-09T15:59:07.891-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_25' is power-on initialization." projectName="GEp_trigger" solutionName="solution1" date="2024-01-09T15:59:07.114-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_7' is power-on initialization." projectName="GEp_trigger" solutionName="solution1" date="2024-01-09T15:59:07.106-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'hcal_cluster_hls_ap_uint_ap_uint_ap_uint_stream_stream_stream_stream_4_a_8' is power-on initialization." projectName="GEp_trigger" solutionName="solution1" date="2024-01-09T15:59:07.100-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_38' is power-on initialization." projectName="GEp_trigger" solutionName="solution1" date="2024-01-09T15:59:07.095-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_39' is power-on initialization." projectName="GEp_trigger" solutionName="solution1" date="2024-01-09T15:59:07.089-0500" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_18' is power-on initialization." projectName="GEp_trigger" solutionName="solution1" date="2024-01-09T15:59:07.085-0500" type="Warning"/>
+      </synLog>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>
