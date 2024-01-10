@@ -79,8 +79,8 @@ void hcal_cluster_hls(
 #pragma HLS ARRAY_PARTITION variable=allc[2].c dim=1 type=complete
 #pragma HLS ARRAY_PARTITION variable=allc[3].c dim=1 type=complete
 
-//  for(ch=0; ch<NCHAN_TOT;ch++){
-  for(ch=0; ch<10;ch++){
+  for(ch=0; ch<NCHAN_TOT;ch++){
+//  for(ch=0; ch<10;ch++){
       hit_t nearby_hit_pre[9];
 #pragma HLS ARRAY_PARTITION variable=nearby_hit_pre dim=1 type=complete
 
@@ -296,21 +296,19 @@ cluster_t Find_cluster(
 
 
     for(nblock=1; nblock<9; nblock++){
-        if( curhits[nblock].e>0 && hit_coin_t(t0, curhits[nblock].t, hit_dt) ){
-            if(curhits[nblock].e > e0)
-               nhits[0]=0;
-            nhits[nblock] = nhits[nblock]+1;
-            total_e = total_e + curhits[nblock].e; 
-        }
-
         if( prehits[nblock].e>0 && hit_coin_t(t0+8, prehits[nblock].t, hit_dt) ){
             if(prehits[nblock].e > e0)
                nhits[0]=0;
             nhits[nblock] = nhits[nblock]+1;
             total_e = total_e + prehits[nblock].e; 
         }
-
-        if( afthits[nblock].e && hit_coin_t(t0, afthits[nblock].t+8, hit_dt) ){
+        else if( curhits[nblock].e>0 && hit_coin_t(t0, curhits[nblock].t, hit_dt) ){
+            if(curhits[nblock].e > e0)
+               nhits[0]=0;
+            nhits[nblock] = nhits[nblock]+1;
+            total_e = total_e + curhits[nblock].e; 
+        }
+        else if( afthits[nblock].e && hit_coin_t(t0, afthits[nblock].t+8, hit_dt) ){
             if(afthits[nblock].e > e0) 
                nhits[0]=0;
             nhits[nblock] = nhits[nblock]+1;
