@@ -19,7 +19,7 @@
 <PipelineType>yes(flp)</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>21.948</EstimatedClockPeriod>
+<EstimatedClockPeriod>23.347</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -43,8 +43,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>27227</FF>
-<LUT>700123</LUT>
+<FF>26596</FF>
+<LUT>700125</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
