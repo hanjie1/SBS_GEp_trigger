@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
   hls::stream<fiber_bins_t> s_fiberout;
   hls::stream<cluster_all_t> s_cluster_all[4];
 
-  int nframe=6;
+  int nframe=3;
   int ii=0;
   for(ii=0; ii<nframe; ii++){
 

@@ -8,34 +8,15 @@ open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame1.txt
 1 288
 open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame2.txt
 2 288
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame3.txt
-3 288
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame4.txt
-4 288
-open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame5.txt
-5 288
 frame  0
 nclust: 0
 frame  1
 nclust: 0
 frame  2
-nclust 1 at (21, 3), e=6274, t=4
+nclust 1 at (1, 1), e=7000, t=0
 nclust: 1
-frame  3
-nclust 1 at (8, 12), e=4090, t=4
-nclust: 1
-frame  4
-nclust 1 at (22, 7), e=7144, t=3
-nclust: 1
-frame  5
-nclust 1 at (16, 11), e=4159, t=0
-nclust: 1
-Find cluster at frame 2: ch=244, e=6274, t=48, x=21, y=3, nhits=1
-Find cluster at frame 3: ch=27, e=4090, t=80, x=8, y=12, nhits=1
-Find cluster at frame 4: ch=257, e=7144, t=108, x=22, y=7, nhits=2
-Find cluster at frame 5: ch=189, e=4159, t=128, x=16, y=11, nhits=1
-Fiber out at frame 2: ch=62, t=48
-Fiber out at frame 4: ch=62, t=108
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 6
+Find cluster at frame 2: ch=80, e=7000, t=32, x=1, y=1, nhits=1
+Fiber out at frame 2: ch=22, t=32
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

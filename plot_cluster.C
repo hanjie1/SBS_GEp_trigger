@@ -48,8 +48,11 @@ void plot_cluster(){
          hE[ii] = new TH2F(Form("hE%d",ii),Form("hE%d",ii),12,0,12,24,0,24);
          hT[ii] = new TH2F(Form("hT%d",ii),Form("hT%d",ii),12,0,12,24,0,24);
          for(int jj=0; jj<288; jj++){
-             int yy = jj/12;
-             int xx = jj%12;
+             //int yy = (jj+1)/12;
+             //int xx = (jj+1)%12;
+
+             int yy = block_map[jj].ny;
+             int xx = block_map[jj].nx;
              if(all_e[jj]>0){
                 hE[ii]->Fill(xx, yy, all_e[jj]);
                 hT[ii]->Fill(xx, yy, all_t[jj]*4+ii*32);
