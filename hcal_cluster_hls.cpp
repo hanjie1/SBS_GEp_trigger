@@ -290,34 +290,38 @@ cluster_t Find_cluster(
 
     t0 = curhits[0].t;
     e0 = curhits[0].e;
-    ap_uint<16> total_e=e0;
+    ap_uint<17> total_e=e0;
 
     ap_uint<4> nblock;
 
 
     for(nblock=1; nblock<9; nblock++){
+        ap_uint<13> total_e_add=0;
+        ap_uint<1> nhits_add =0;
         if( prehits[nblock].e>0 && hit_coin_t(t0+8, prehits[nblock].t, hit_dt) ){
             if(prehits[nblock].e > e0)
                nhits[0]=0;
-            nhits[nblock] = nhits[nblock]+1;
-            total_e = total_e + prehits[nblock].e; 
+            nhits_add=1;
+            total_e_add = prehits[nblock].e;
         }
         else if( curhits[nblock].e>0 && hit_coin_t(t0, curhits[nblock].t, hit_dt) ){
             if(curhits[nblock].e > e0)
                nhits[0]=0;
-            nhits[nblock] = nhits[nblock]+1;
-            total_e = total_e + curhits[nblock].e; 
+            nhits_add=1;
+            total_e_add = curhits[nblock].e;
         }
         else if( afthits[nblock].e && hit_coin_t(t0, afthits[nblock].t+8, hit_dt) ){
             if(afthits[nblock].e > e0) 
                nhits[0]=0;
-            nhits[nblock] = nhits[nblock]+1;
-            total_e = total_e + afthits[nblock].e; 
+            nhits_add=1;
+            total_e_add = afthits[nblock].e;
         }
+        nhits[nblock] = nhits[nblock]+nhits_add;
+        total_e = total_e+total_e_add;
     }  
 
     if(nhits[0]>0){
-       cc.e = total_e;
+       cc.e = total_e[16]?(ap_uint<16>)65535:total_e(15,0);
        cc.t = t0;
        cc.nhits = nhits[0]+nhits[1]+nhits[2]+nhits[3]+nhits[4]+nhits[5]+nhits[6]+nhits[7]+nhits[8];
        cc.x = x;

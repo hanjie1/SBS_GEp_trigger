@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/daqfs/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'hanjie' on host 'indra-s1.jlab.org' (Linux_x86_64 version 3.10.0-862.14.4.el7.x86_64) on Thu Feb 15 14:33:16 EST 2024
+INFO: [HLS 200-10] For user 'hanjie' on host 'indra-s1.jlab.org' (Linux_x86_64 version 3.10.0-862.14.4.el7.x86_64) on Mon Feb 19 13:06:24 EST 2024
 INFO: [HLS 200-10] In directory '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger'
 INFO: [HLS 200-2053] The vitis_hls executable is being deprecated. Consider using vitis-run --mode hls --tcl
 Sourcing Tcl script '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csynth.tcl'
@@ -23,26 +23,26 @@ INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
 INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
 INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -style flp hcal_cluster_hls 
 INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.08 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.1 seconds; current allocated memory: 389.395 MB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.08 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.11 seconds; current allocated memory: 389.395 MB.
 INFO: [HLS 200-10] Analyzing design file 'hcal_cluster_hls.cpp' ... 
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.54 seconds. CPU system time: 0.62 seconds. Elapsed time: 5.93 seconds; current allocated memory: 389.395 MB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.58 seconds. CPU system time: 0.58 seconds. Elapsed time: 4.37 seconds; current allocated memory: 389.395 MB.
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
-INFO: [HLS 200-1995] There were 10,881 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 760,108 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 454,270 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 453,806 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 403,868 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 610,363 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 405,613 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 405,620 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 422,351 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 419,749 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 309,913 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 224,246 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 223,470 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 222,066 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 218,412 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
-WARNING: [HLS 200-1995] There were 221,385 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 10,524 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 715,468 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 428,638 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 428,174 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 378,236 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 584,731 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 379,981 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 379,988 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 396,719 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 394,117 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 284,281 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 200,870 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 200,094 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 198,690 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 195,036 instructions in the design after the 'HW Transforms' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
+WARNING: [HLS 200-1995] There were 198,009 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
 INFO: [HLS 214-377] Adding 'allc' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:155:14)
 INFO: [HLS 214-377] Adding 'ref.tmp180' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:155:14)
 INFO: [HLS 214-377] Adding 'allc' into disaggregation list because there's array-partition pragma applied on the struct field (hcal_cluster_hls.cpp:80:9)
@@ -110,19 +110,19 @@ INFO: [HLS 214-364] Automatically inlining function 'Find_block(ap_uint<9>, ap_u
 INFO: [HLS 214-364] Automatically inlining function 'Find_block(ap_uint<9>, ap_uint<1>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:104:117)
 INFO: [HLS 214-364] Automatically inlining function 'Find_cluster(hit_t*, hit_t*, hit_t*, ap_uint<3>, ap_uint<13>, ap_uint<5>, ap_uint<4>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:104:14)
 INFO: [HLS 214-364] Automatically inlining function 'FiberOut(cluster_all_t*, ap_uint<16>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:155:14)
-INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:299:36)
-INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:305:41)
-INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:311:39)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 327.41 seconds. CPU system time: 2.03 seconds. Elapsed time: 331.43 seconds; current allocated memory: 517.395 MB.
+INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:301:36)
+INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:307:41)
+INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:313:39)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 304.29 seconds. CPU system time: 2.09 seconds. Elapsed time: 305.79 seconds; current allocated memory: 517.395 MB.
 INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 517.395 MB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 42.16 seconds. CPU system time: 0.52 seconds. Elapsed time: 43.05 seconds; current allocated memory: 1.443 GB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 39.29 seconds. CPU system time: 0.56 seconds. Elapsed time: 40.25 seconds; current allocated memory: 1.505 GB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 57.78 seconds. CPU system time: 0.24 seconds. Elapsed time: 58.16 seconds; current allocated memory: 1.631 GB.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:8:9) to (hcal_cluster_hls.cpp:159:1) in function 'hcal_cluster_hls'... converting 20125 basic blocks.
-INFO: [XFORM 203-11] Balancing expressions in function 'hcal_cluster_hls' (hcal_cluster_hls.cpp:8:44)...2972 expression(s) balanced.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 300.47 seconds. CPU system time: 1.38 seconds. Elapsed time: 302.06 seconds; current allocated memory: 2.443 GB.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 656.35 seconds. CPU system time: 1.1 seconds. Elapsed time: 657.51 seconds; current allocated memory: 2.443 GB.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 56.71 seconds. CPU system time: 0.25 seconds. Elapsed time: 57.1 seconds; current allocated memory: 1.630 GB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:8:9) to (hcal_cluster_hls.cpp:159:1) in function 'hcal_cluster_hls'... converting 20701 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'hcal_cluster_hls' (hcal_cluster_hls.cpp:8:44)...6860 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 523.66 seconds. CPU system time: 2.89 seconds. Elapsed time: 526.73 seconds; current allocated memory: 2.505 GB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 681.99 seconds. CPU system time: 0.74 seconds. Elapsed time: 682.8 seconds; current allocated memory: 2.505 GB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'hcal_cluster_hls' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -132,13 +132,13 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'hcal_cluster_hls'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'hcal_cluster_hls'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 249.78 seconds. CPU system time: 2.23 seconds. Elapsed time: 252.1 seconds; current allocated memory: 2.545 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 284.34 seconds. CPU system time: 2.56 seconds. Elapsed time: 286.99 seconds; current allocated memory: 2.505 GB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 498.57 seconds. CPU system time: 2.68 seconds. Elapsed time: 503.28 seconds; current allocated memory: 2.545 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 476.72 seconds. CPU system time: 1.12 seconds. Elapsed time: 480.2 seconds; current allocated memory: 2.505 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'hcal_cluster_hls' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1305,13 +1305,13 @@ WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EE
 WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_1946' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_1407' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_1408' is power-on initialization.
-INFO: [RTGEN 206-104] Estimated max fanout for 'hcal_cluster_hls' is 43020 from HDL expression: (~((1'b1 == ap_block_state1_pp0_stage0_iter0) | ((1'b1 == ap_CS_iter1_fsm_state2) & (1'b1 == ap_block_state2_pp0_stage0_iter1))) & (1'b1 == ap_CS_iter0_fsm_state1))
+INFO: [RTGEN 206-104] Estimated max fanout for 'hcal_cluster_hls' is 31583 from HDL expression: (~((1'b1 == ap_block_state1_pp0_stage0_iter0) | ((1'b1 == ap_CS_iter1_fsm_state2) & (1'b1 == ap_block_state2_pp0_stage0_iter1))) & (1'b1 == ap_CS_iter0_fsm_state1))
 INFO: [RTGEN 206-100] Finished creating RTL model for 'hcal_cluster_hls'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1030.74 seconds. CPU system time: 3.81 seconds. Elapsed time: 1043.1 seconds; current allocated memory: 3.135 GB.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 459.41 seconds. CPU system time: 6.71 seconds. Elapsed time: 474.91 seconds; current allocated memory: 4.635 GB.
-INFO: [HLS 200-111] Finished Updating report files: CPU user time: 16.23 seconds. CPU system time: 0.3 seconds. Elapsed time: 16.81 seconds; current allocated memory: 4.948 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1150.59 seconds. CPU system time: 3.64 seconds. Elapsed time: 1163.24 seconds; current allocated memory: 3.033 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 444.46 seconds. CPU system time: 8.26 seconds. Elapsed time: 461.23 seconds; current allocated memory: 4.533 GB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 15.68 seconds. CPU system time: 0.33 seconds. Elapsed time: 16.21 seconds; current allocated memory: 4.785 GB.
 INFO: [VHDL 208-304] Generating VHDL RTL for hcal_cluster_hls.
 INFO: [VLOG 209-307] Generating Verilog RTL for hcal_cluster_hls.
-INFO: [HLS 200-789] **** Estimated Fmax: 42.83 MHz
-INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 3642.72 seconds. CPU system time: 21.65 seconds. Elapsed time: 3688.78 seconds; current allocated memory: 4.567 GB.
-INFO: [HLS 200-112] Total CPU user time: 3648.68 seconds. Total CPU system time: 22.41 seconds. Total elapsed time: 3695.9 seconds; peak allocated memory: 4.948 GB.
+INFO: [HLS 200-789] **** Estimated Fmax: 68.76 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 3981.57 seconds. CPU system time: 23.05 seconds. Elapsed time: 4025.3 seconds; current allocated memory: 4.405 GB.
+INFO: [HLS 200-112] Total CPU user time: 3987.06 seconds. Total CPU system time: 23.9 seconds. Total elapsed time: 4032.35 seconds; peak allocated memory: 4.785 GB.

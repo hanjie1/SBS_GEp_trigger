@@ -37,7 +37,7 @@ void plot_cluster(){
      TH2F *hE[nframe];
      TH2F *hT[nframe];
 
-     TH2F *hE_tot = new TH2F("hE_tot","hE_tot",12,0,12,24,0,24);
+     TH2F *hE_tot = new TH2F("hE_tot","hE_tot",25,0,25,13,0,13);
 
      for(int ii=0; ii<nframe; ii++){
          TString filename = Form("data/frame%d.txt",ii);
@@ -45,8 +45,8 @@ void plot_cluster(){
          int all_e[288]={0};
          int valid = LoadFrame(filename, all_e, all_t);
 
-         hE[ii] = new TH2F(Form("hE%d",ii),Form("hE%d",ii),12,0,12,24,0,24);
-         hT[ii] = new TH2F(Form("hT%d",ii),Form("hT%d",ii),12,0,12,24,0,24);
+         hE[ii] = new TH2F(Form("hE%d",ii),Form("hE%d",ii),25,0,25,13,0,13);
+         hT[ii] = new TH2F(Form("hT%d",ii),Form("hT%d",ii),25,0,25,13,0,13);
          for(int jj=0; jj<288; jj++){
              //int yy = (jj+1)/12;
              //int xx = (jj+1)%12;
@@ -54,6 +54,7 @@ void plot_cluster(){
              int yy = block_map[jj].ny;
              int xx = block_map[jj].nx;
              if(all_e[jj]>0){
+cout<<ii<<"   "<<jj<<"  "<<xx<<"   "<<yy<<"   "<<all_e[jj]<<endl;
                 hE[ii]->Fill(xx, yy, all_e[jj]);
                 hT[ii]->Fill(xx, yy, all_t[jj]*4+ii*32);
                 hE_tot->Fill(xx, yy, all_e[jj]);

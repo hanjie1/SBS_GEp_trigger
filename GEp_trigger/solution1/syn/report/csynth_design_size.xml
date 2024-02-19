@@ -2,46 +2,46 @@
     <item name="Total Instructions per Compilation Phase">
         <table>
             <keys size="4">Phase, Step, Instructions, Description</keys>
-            <column name="Compile/Link">,  10881, After all functions are compiled and linked into a single design</column>
+            <column name="Compile/Link">,  10524, After all functions are compiled and linked into a single design</column>
             <column name="">, , </column>
             <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
-            <column name="">(1) unroll, 760108 *, user unroll pragmas are applied</column>
-            <column name="">(2) simplification, 454270 *, simplification of applied user unroll pragmas</column>
-            <column name="">(3) inline, 453806 *, user inline pragmas are applied</column>
-            <column name="">(4) simplification, 403868 *, simplification of applied user inline pragmas</column>
+            <column name="">(1) unroll, 715468 *, user unroll pragmas are applied</column>
+            <column name="">(2) simplification, 428638 *, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline, 428174 *, user inline pragmas are applied</column>
+            <column name="">(4) simplification, 378236 *, simplification of applied user inline pragmas</column>
             <column name="">, , </column>
             <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
-            <column name="">(1) array partition, 610363 *, user array partition pragmas are applied</column>
-            <column name="">(2) simplification, 405613 *, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
-            <column name="">(3) aggregate/disaggregate , 405620 *, user struct aggregate/disaggregate pragmas are applied</column>
-            <column name="">(4) array reshape, 422351 *, apply array reshape pragmas</column>
-            <column name="">(5) access patterns, 419749 *, array access pattern optmizations</column>
+            <column name="">(1) array partition, 584731 *, user array partition pragmas are applied</column>
+            <column name="">(2) simplification, 379981 *, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate , 379988 *, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape, 396719 *, apply array reshape pragmas</column>
+            <column name="">(5) access patterns, 394117 *, array access pattern optmizations</column>
             <column name="">, , </column>
             <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
-            <column name="">(1) loop simplification, 309913 *, loop and instruction simplification</column>
-            <column name="">(2) parallelization, 224246 *, loops are unrolled or pipelined to meet performance targets</column>
-            <column name="">(3) array partition, 223470 *, arrays are partitioned to meet performance targets</column>
-            <column name="">(4) simplification, 222066 *, simplification of design after performance transformations</column>
+            <column name="">(1) loop simplification, 284281 *, loop and instruction simplification</column>
+            <column name="">(2) parallelization, 200870 *, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition, 200094 *, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification, 198690 *, simplification of design after performance transformations</column>
             <column name="">, , </column>
             <column name="HW Transforms">, , After hardware transfomations</column>
-            <column name="">(1) lowering, 218412 *, initial conversion to HW specific instructions</column>
-            <column name="">(2) optimizations, 221385 *, high level synthesis optimizations</column>
+            <column name="">(1) lowering, 195036 *, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations, 198009 *, high level synthesis optimizations</column>
         </table>
     </item>
     <item name="Instructions per Function for each Compilation Phase">
         <hiertable>
             <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
             <rows>
-                <row id="0" col0="hcal_cluster_hls" col1="hcal_cluster_hls.cpp:19" col2="10881" col3="403868" col3_note="*" col4="419749" col4_note="*" col5="222066" col5_note="*" col6="221385" col6_note="*">
+                <row id="0" col0="hcal_cluster_hls" col1="hcal_cluster_hls.cpp:19" col2="10524" col3="378236" col3_note="*" col4="394117" col4_note="*" col5="198690" col5_note="*" col6="198009" col6_note="*">
                     <row id="4" col0="Find_nearby" col1="hcal_cluster_hls.cpp:243" col2="3687" col3="" col4="" col5="" col6="">
-                        <row id="5" col0="Find_block" col1="hcal_cluster_hls.cpp:210" col2="264" col2_disp="  264 (2 calls)" col3="" col4="" col5="" col6=""/>
-                        <row id="8" col0="Find_channel" col1="hcal_cluster_hls.cpp:227" col2="1592" col2_disp="1,592 (8 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="6" col0="Find_block" col1="hcal_cluster_hls.cpp:210" col2="264" col2_disp="  264 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="5" col0="Find_channel" col1="hcal_cluster_hls.cpp:227" col2="1592" col2_disp="1,592 (8 calls)" col3="" col4="" col5="" col6=""/>
                     </row>
-                    <row id="5" col0="Find_block" col1="hcal_cluster_hls.cpp:210" col2="264" col2_disp="  264 (2 calls)" col3="8640" col3_disp=" 8,640 (576 calls)" col4="8640" col4_disp=" 8,640 (576 calls)" col5="" col6=""/>
-                    <row id="2" col0="Find_cluster" col1="hcal_cluster_hls.cpp:268" col2="3720" col3="341280" col3_disp="341,280 (288 calls)" col4="327456" col4_disp="327,456 (288 calls)" col5="" col6="">
-                        <row id="1" col0="hit_coin_t" col1="hcal_cluster_hls.cpp:263" col2="786" col2_disp="  786 (3 calls)" col3="145152" col3_disp="145,152 (6912 calls)" col4="145152" col4_disp="145,152 (6912 calls)" col5="" col6=""/>
+                    <row id="6" col0="Find_block" col1="hcal_cluster_hls.cpp:210" col2="264" col2_disp="  264 (2 calls)" col3="8640" col3_disp=" 8,640 (576 calls)" col4="8640" col4_disp=" 8,640 (576 calls)" col5="" col6=""/>
+                    <row id="1" col0="Find_cluster" col1="hcal_cluster_hls.cpp:268" col2="3363" col3="315648" col3_disp="315,648 (288 calls)" col4="301824" col4_disp="301,824 (288 calls)" col5="" col6="">
+                        <row id="2" col0="hit_coin_t" col1="hcal_cluster_hls.cpp:263" col2="786" col2_disp="  786 (3 calls)" col3="145152" col3_disp="145,152 (6912 calls)" col4="145152" col4_disp="145,152 (6912 calls)" col5="" col6=""/>
                     </row>
-                    <row id="3" col0="FiberOut" col1="hcal_cluster_hls.cpp:162" col2="988" col3="6133" col4="3482" col5="" col6=""/>
+                    <row id="7" col0="FiberOut" col1="hcal_cluster_hls.cpp:162" col2="988" col3="6133" col4="3482" col5="" col6=""/>
                 </row>
             </rows>
             <notes>

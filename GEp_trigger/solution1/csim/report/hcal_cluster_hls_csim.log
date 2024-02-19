@@ -1,6 +1,6 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../hcal_cluster_hls.cpp in debug mode
+   Compiling ../../../../hcal_cluster_hls_tb.cpp in debug mode
    Generating csim.exe
 open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame0.txt
 0 288
@@ -8,15 +8,35 @@ open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame1.txt
 1 288
 open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame2.txt
 2 288
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame3.txt
+3 288
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame4.txt
+4 288
+open file: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/data/frame5.txt
+5 288
 frame  0
 nclust: 0
 frame  1
 nclust: 0
 frame  2
-nclust 1 at (1, 1), e=7000, t=0
+nclust 1 at (17, 7), e=7780, t=5
 nclust: 1
-Find cluster at frame 2: ch=80, e=7000, t=32, x=1, y=1, nhits=1
-Fiber out at frame 2: ch=22, t=32
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
+frame  3
+nclust 1 at (6, 11), e=6155, t=6
+nclust: 1
+frame  4
+nclust 1 at (5, 9), e=4669, t=7
+nclust: 1
+frame  5
+nclust 1 at (21, 12), e=6056, t=5
+nclust: 1
+Find cluster at frame 2: ch=193, e=7780, t=52, x=17, y=7, nhits=2
+Find cluster at frame 3: ch=141, e=6155, t=88, x=6, y=11, nhits=1
+Find cluster at frame 4: ch=133, e=4669, t=124, x=5, y=9, nhits=1
+Find cluster at frame 5: ch=251, e=6056, t=148, x=21, y=12, nhits=1
+Fiber out at frame 2: ch=48, t=52
+Fiber out at frame 3: ch=34, t=88
+Fiber out at frame 5: ch=65, t=148
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 6
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

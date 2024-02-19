@@ -6,30 +6,30 @@
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
 | Phase         | Step                        | Instructions | Description                                                                            |
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
-| Compile/Link  |                             |  10,881      | After all functions are compiled and linked into a single design                       |
+| Compile/Link  |                             |  10,524      | After all functions are compiled and linked into a single design                       |
 |               |                             |              |                                                                                        |
 | Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
-|               | (1) unroll                  | 760,108 *    | user unroll pragmas are applied                                                        |
-|               | (2) simplification          | 454,270 *    | simplification of applied user unroll pragmas                                          |
-|               | (3) inline                  | 453,806 *    | user inline pragmas are applied                                                        |
-|               | (4) simplification          | 403,868 *    | simplification of applied user inline pragmas                                          |
+|               | (1) unroll                  | 715,468 *    | user unroll pragmas are applied                                                        |
+|               | (2) simplification          | 428,638 *    | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  | 428,174 *    | user inline pragmas are applied                                                        |
+|               | (4) simplification          | 378,236 *    | simplification of applied user inline pragmas                                          |
 |               |                             |              |                                                                                        |
 | Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
-|               | (1) array partition         | 610,363 *    | user array partition pragmas are applied                                               |
-|               | (2) simplification          | 405,613 *    | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
-|               | (3) aggregate/disaggregate  | 405,620 *    | user struct aggregate/disaggregate pragmas are applied                                 |
-|               | (4) array reshape           | 422,351 *    | apply array reshape pragmas                                                            |
-|               | (5) access patterns         | 419,749 *    | array access pattern optmizations                                                      |
+|               | (1) array partition         | 584,731 *    | user array partition pragmas are applied                                               |
+|               | (2) simplification          | 379,981 *    | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  | 379,988 *    | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           | 396,719 *    | apply array reshape pragmas                                                            |
+|               | (5) access patterns         | 394,117 *    | array access pattern optmizations                                                      |
 |               |                             |              |                                                                                        |
 | Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
-|               | (1) loop simplification     | 309,913 *    | loop and instruction simplification                                                    |
-|               | (2) parallelization         | 224,246 *    | loops are unrolled or pipelined to meet performance targets                            |
-|               | (3) array partition         | 223,470 *    | arrays are partitioned to meet performance targets                                     |
-|               | (4) simplification          | 222,066 *    | simplification of design after performance transformations                             |
+|               | (1) loop simplification     | 284,281 *    | loop and instruction simplification                                                    |
+|               | (2) parallelization         | 200,870 *    | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         | 200,094 *    | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          | 198,690 *    | simplification of design after performance transformations                             |
 |               |                             |              |                                                                                        |
 | HW Transforms |                             |              | After hardware transfomations                                                          |
-|               | (1) lowering                | 218,412 *    | initial conversion to HW specific instructions                                         |
-|               | (2) optimizations           | 221,385 *    | high level synthesis optimizations                                                     |
+|               | (1) lowering                | 195,036 *    | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           | 198,009 *    | high level synthesis optimizations                                                     |
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
     * - Exceeded design size warning message threshold
 
@@ -37,12 +37,12 @@
 +--------------------+--------------------------+-----------------+----------------------+----------------------+-------------+---------------+
 | Function           | Location                 | Compile/Link    | Unroll/Inline        | Array/Struct         | Performance | HW Transforms |
 +--------------------+--------------------------+-----------------+----------------------+----------------------+-------------+---------------+
-| + hcal_cluster_hls | hcal_cluster_hls.cpp:19  | 10,881          | 403,868 *            | 419,749 *            | 222,066 *   | 221,385 *     |
+| + hcal_cluster_hls | hcal_cluster_hls.cpp:19  | 10,524          | 378,236 *            | 394,117 *            | 198,690 *   | 198,009 *     |
 |  + Find_nearby     | hcal_cluster_hls.cpp:243 | 3,687           |                      |                      |             |               |
 |     Find_block     | hcal_cluster_hls.cpp:210 |   264 (2 calls) |                      |                      |             |               |
 |     Find_channel   | hcal_cluster_hls.cpp:227 | 1,592 (8 calls) |                      |                      |             |               |
 |    Find_block      | hcal_cluster_hls.cpp:210 |   264 (2 calls) |  8,640 (576 calls)   |  8,640 (576 calls)   |             |               |
-|  + Find_cluster    | hcal_cluster_hls.cpp:268 | 3,720           | 341,280 (288 calls)  | 327,456 (288 calls)  |             |               |
+|  + Find_cluster    | hcal_cluster_hls.cpp:268 | 3,363           | 315,648 (288 calls)  | 301,824 (288 calls)  |             |               |
 |     hit_coin_t     | hcal_cluster_hls.cpp:263 |   786 (3 calls) | 145,152 (6912 calls) | 145,152 (6912 calls) |             |               |
 |    FiberOut        | hcal_cluster_hls.cpp:162 |   988           |  6,133               |  3,482               |             |               |
 +--------------------+--------------------------+-----------------+----------------------+----------------------+-------------+---------------+
