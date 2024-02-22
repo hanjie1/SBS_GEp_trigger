@@ -4,7 +4,7 @@
     <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Release/a.out"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="GEp_trigger"/>
     <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="cdt.managedbuild.config.gnu.exe.release.1430344537"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="cdt.managedbuild.config.gnu.exe.release.1735543055"/>
     <stringAttribute key="org.eclipse.cdt.launch.WORKING_DIRECTORY" value="/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger"/>
     <booleanAttribute key="org.eclipse.cdt.launch.use_terminal" value="true"/>
     <stringAttribute key="org.eclipse.debug.core.source_locator_id" value="org.eclipse.cdt.debug.core.sourceLocator"/>

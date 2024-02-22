@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/daqfs/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'hanjie' on host 'indra-s1.jlab.org' (Linux_x86_64 version 3.10.0-862.14.4.el7.x86_64) on Mon Feb 19 13:06:24 EST 2024
+INFO: [HLS 200-10] For user 'hanjie' on host 'indra-s1.jlab.org' (Linux_x86_64 version 3.10.0-862.14.4.el7.x86_64) on Wed Feb 21 10:17:41 EST 2024
 INFO: [HLS 200-10] In directory '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger'
 INFO: [HLS 200-2053] The vitis_hls executable is being deprecated. Consider using vitis-run --mode hls --tcl
 Sourcing Tcl script '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/csynth.tcl'
@@ -9,7 +9,7 @@ INFO: [HLS 200-10] Opening project '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigg
 INFO: [HLS 200-1510] Running: set_top hcal_cluster_hls 
 INFO: [HLS 200-1510] Running: add_files hcal_cluster_hls.cpp 
 INFO: [HLS 200-10] Adding design file 'hcal_cluster_hls.cpp' to the project
-INFO: [HLS 200-1510] Running: add_files -tb hcal_cluster_hls_tb.cpp -cflags -lpthread -Wno-unknown-pragmas 
+INFO: [HLS 200-1510] Running: add_files -tb hcal_cluster_hls_tb.cpp 
 INFO: [HLS 200-10] Adding test bench file 'hcal_cluster_hls_tb.cpp' to the project
 INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
 INFO: [HLS 200-10] Opening solution '/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1'.
@@ -17,15 +17,14 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 32ns.
 INFO: [HLS 200-1611] Setting target device to 'xc7vx550t-ffg1927-1'
 INFO: [HLS 200-1505] Using flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
-INFO: [HLS 200-1510] Running: set_part xc7vx550t-ffg1927-1 
+INFO: [HLS 200-1510] Running: set_part xc7vx550tffg1927-1 
 INFO: [HLS 200-1510] Running: create_clock -period 32 -name default 
 INFO: [HLS 200-1510] Running: source ./GEp_trigger/solution1/directives.tcl
-INFO: [HLS 200-1510] Running: set_directive_top -name hcal_cluster_hls hcal_cluster_hls 
 INFO: [HLS 200-1510] Running: set_directive_pipeline -II 1 -style flp hcal_cluster_hls 
 INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.08 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.11 seconds; current allocated memory: 389.395 MB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.07 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.11 seconds; current allocated memory: 369.605 MB.
 INFO: [HLS 200-10] Analyzing design file 'hcal_cluster_hls.cpp' ... 
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.58 seconds. CPU system time: 0.58 seconds. Elapsed time: 4.37 seconds; current allocated memory: 389.395 MB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.65 seconds. CPU system time: 0.61 seconds. Elapsed time: 4.41 seconds; current allocated memory: 369.605 MB.
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
 INFO: [HLS 200-1995] There were 10,524 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
 WARNING: [HLS 200-1995] There were 715,468 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/syn/report/csynth_design_size.rpt
@@ -113,16 +112,16 @@ INFO: [HLS 214-364] Automatically inlining function 'FiberOut(cluster_all_t*, ap
 INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:301:36)
 INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:307:41)
 INFO: [HLS 214-364] Automatically inlining function 'hit_coin_t(ap_uint<4>, ap_uint<4>, ap_uint<3>)' to improve effectiveness of pipeline pragma in function 'hcal_cluster_hls(ap_uint<3>, ap_uint<13>, ap_uint<16>, hls::stream<fadc_hits_vxs, 0>&, hls::stream<fadc_hits_fiber, 0>&, hls::stream<fiber_bins_t, 0>&, hls::stream<cluster_all_t, 0> (&) [4])' (hcal_cluster_hls.cpp:313:39)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 304.29 seconds. CPU system time: 2.09 seconds. Elapsed time: 305.79 seconds; current allocated memory: 517.395 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 517.395 MB.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 305.85 seconds. CPU system time: 2 seconds. Elapsed time: 305.65 seconds; current allocated memory: 497.605 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 497.605 MB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 39.29 seconds. CPU system time: 0.56 seconds. Elapsed time: 40.25 seconds; current allocated memory: 1.505 GB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 33.77 seconds. CPU system time: 0.58 seconds. Elapsed time: 34.71 seconds; current allocated memory: 1.486 GB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 56.71 seconds. CPU system time: 0.25 seconds. Elapsed time: 57.1 seconds; current allocated memory: 1.630 GB.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:8:9) to (hcal_cluster_hls.cpp:159:1) in function 'hcal_cluster_hls'... converting 20701 basic blocks.
-INFO: [XFORM 203-11] Balancing expressions in function 'hcal_cluster_hls' (hcal_cluster_hls.cpp:8:44)...6860 expression(s) balanced.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 523.66 seconds. CPU system time: 2.89 seconds. Elapsed time: 526.73 seconds; current allocated memory: 2.505 GB.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 681.99 seconds. CPU system time: 0.74 seconds. Elapsed time: 682.8 seconds; current allocated memory: 2.505 GB.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 54.35 seconds. CPU system time: 0.25 seconds. Elapsed time: 54.75 seconds; current allocated memory: 1.611 GB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:7:9) to (hcal_cluster_hls.cpp:159:1) in function 'hcal_cluster_hls'... converting 20701 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'hcal_cluster_hls' (hcal_cluster_hls.cpp:7:44)...6860 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 405.71 seconds. CPU system time: 1.64 seconds. Elapsed time: 407.56 seconds; current allocated memory: 2.486 GB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 680.83 seconds. CPU system time: 0.81 seconds. Elapsed time: 681.7 seconds; current allocated memory: 2.486 GB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'hcal_cluster_hls' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -132,13 +131,13 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'hcal_cluster_hls'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'hcal_cluster_hls'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 284.34 seconds. CPU system time: 2.56 seconds. Elapsed time: 286.99 seconds; current allocated memory: 2.505 GB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 278.27 seconds. CPU system time: 1.04 seconds. Elapsed time: 279.36 seconds; current allocated memory: 2.504 GB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 476.72 seconds. CPU system time: 1.12 seconds. Elapsed time: 480.2 seconds; current allocated memory: 2.505 GB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 476.13 seconds. CPU system time: 0.97 seconds. Elapsed time: 479.3 seconds; current allocated memory: 2.504 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'hcal_cluster_hls' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -1307,11 +1306,11 @@ WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EE
 WARNING: [RTGEN 206-101] Register 'p_ZZ16hcal_cluster_hls7ap_uintILi3EES_ILi13EES_ILi16EERN3hls6streamI13fadc_hits_v_1408' is power-on initialization.
 INFO: [RTGEN 206-104] Estimated max fanout for 'hcal_cluster_hls' is 31583 from HDL expression: (~((1'b1 == ap_block_state1_pp0_stage0_iter0) | ((1'b1 == ap_CS_iter1_fsm_state2) & (1'b1 == ap_block_state2_pp0_stage0_iter1))) & (1'b1 == ap_CS_iter0_fsm_state1))
 INFO: [RTGEN 206-100] Finished creating RTL model for 'hcal_cluster_hls'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1150.59 seconds. CPU system time: 3.64 seconds. Elapsed time: 1163.24 seconds; current allocated memory: 3.033 GB.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 444.46 seconds. CPU system time: 8.26 seconds. Elapsed time: 461.23 seconds; current allocated memory: 4.533 GB.
-INFO: [HLS 200-111] Finished Updating report files: CPU user time: 15.68 seconds. CPU system time: 0.33 seconds. Elapsed time: 16.21 seconds; current allocated memory: 4.785 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1044.49 seconds. CPU system time: 2.99 seconds. Elapsed time: 1055.6 seconds; current allocated memory: 3.031 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 464.54 seconds. CPU system time: 6.77 seconds. Elapsed time: 480.21 seconds; current allocated memory: 4.531 GB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 16.26 seconds. CPU system time: 0.26 seconds. Elapsed time: 16.69 seconds; current allocated memory: 4.785 GB.
 INFO: [VHDL 208-304] Generating VHDL RTL for hcal_cluster_hls.
 INFO: [VLOG 209-307] Generating Verilog RTL for hcal_cluster_hls.
 INFO: [HLS 200-789] **** Estimated Fmax: 68.76 MHz
-INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 3981.57 seconds. CPU system time: 23.05 seconds. Elapsed time: 4025.3 seconds; current allocated memory: 4.405 GB.
-INFO: [HLS 200-112] Total CPU user time: 3987.06 seconds. Total CPU system time: 23.9 seconds. Total elapsed time: 4032.35 seconds; peak allocated memory: 4.785 GB.
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 3764.12 seconds. CPU system time: 17.97 seconds. Elapsed time: 3800.32 seconds; current allocated memory: 4.424 GB.
+INFO: [HLS 200-112] Total CPU user time: 3769.78 seconds. Total CPU system time: 18.73 seconds. Total elapsed time: 3807.28 seconds; peak allocated memory: 4.785 GB.

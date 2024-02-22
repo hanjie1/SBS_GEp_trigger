@@ -1,11 +1,6 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
     <sourceFile name="">
         <directive functionName="hcal_cluster_hls" label="" functionLabel="">
-            <pragma name="TOP">
-                <option name="name" value="hcal_cluster_hls"/>
-            </pragma>
-        </directive>
-        <directive functionName="hcal_cluster_hls" label="" functionLabel="">
             <pragma name="PIPELINE">
                 <option name="II" value="1"/>
                 <option name="flp" value="" positionalBoolean="style"/>

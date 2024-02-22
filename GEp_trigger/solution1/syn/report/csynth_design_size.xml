@@ -33,15 +33,15 @@
             <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
             <rows>
                 <row id="0" col0="hcal_cluster_hls" col1="hcal_cluster_hls.cpp:19" col2="10524" col3="378236" col3_note="*" col4="394117" col4_note="*" col5="198690" col5_note="*" col6="198009" col6_note="*">
-                    <row id="4" col0="Find_nearby" col1="hcal_cluster_hls.cpp:243" col2="3687" col3="" col4="" col5="" col6="">
-                        <row id="6" col0="Find_block" col1="hcal_cluster_hls.cpp:210" col2="264" col2_disp="  264 (2 calls)" col3="" col4="" col5="" col6=""/>
-                        <row id="5" col0="Find_channel" col1="hcal_cluster_hls.cpp:227" col2="1592" col2_disp="1,592 (8 calls)" col3="" col4="" col5="" col6=""/>
+                    <row id="7" col0="Find_nearby" col1="hcal_cluster_hls.cpp:243" col2="3687" col3="" col4="" col5="" col6="">
+                        <row id="2" col0="Find_block" col1="hcal_cluster_hls.cpp:210" col2="264" col2_disp="  264 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="Find_channel" col1="hcal_cluster_hls.cpp:227" col2="1592" col2_disp="1,592 (8 calls)" col3="" col4="" col5="" col6=""/>
                     </row>
-                    <row id="6" col0="Find_block" col1="hcal_cluster_hls.cpp:210" col2="264" col2_disp="  264 (2 calls)" col3="8640" col3_disp=" 8,640 (576 calls)" col4="8640" col4_disp=" 8,640 (576 calls)" col5="" col6=""/>
-                    <row id="1" col0="Find_cluster" col1="hcal_cluster_hls.cpp:268" col2="3363" col3="315648" col3_disp="315,648 (288 calls)" col4="301824" col4_disp="301,824 (288 calls)" col5="" col6="">
-                        <row id="2" col0="hit_coin_t" col1="hcal_cluster_hls.cpp:263" col2="786" col2_disp="  786 (3 calls)" col3="145152" col3_disp="145,152 (6912 calls)" col4="145152" col4_disp="145,152 (6912 calls)" col5="" col6=""/>
+                    <row id="2" col0="Find_block" col1="hcal_cluster_hls.cpp:210" col2="264" col2_disp="  264 (2 calls)" col3="8640" col3_disp=" 8,640 (576 calls)" col4="8640" col4_disp=" 8,640 (576 calls)" col5="" col6=""/>
+                    <row id="5" col0="Find_cluster" col1="hcal_cluster_hls.cpp:268" col2="3363" col3="315648" col3_disp="315,648 (288 calls)" col4="301824" col4_disp="301,824 (288 calls)" col5="" col6="">
+                        <row id="4" col0="hit_coin_t" col1="hcal_cluster_hls.cpp:263" col2="786" col2_disp="  786 (3 calls)" col3="145152" col3_disp="145,152 (6912 calls)" col4="145152" col4_disp="145,152 (6912 calls)" col5="" col6=""/>
                     </row>
-                    <row id="7" col0="FiberOut" col1="hcal_cluster_hls.cpp:162" col2="988" col3="6133" col4="3482" col5="" col6=""/>
+                    <row id="1" col0="FiberOut" col1="hcal_cluster_hls.cpp:162" col2="988" col3="6133" col4="3482" col5="" col6=""/>
                 </row>
             </rows>
             <notes>

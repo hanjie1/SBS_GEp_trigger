@@ -34,7 +34,7 @@
         <SummaryOfViolations>
             <IssueType>-</IssueType>
             <ViolationType>-</ViolationType>
-            <SourceLocation>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:8</SourceLocation>
+            <SourceLocation>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:7</SourceLocation>
         </SummaryOfViolations>
     </PerformanceEstimates>
     <AreaEstimates>
@@ -439,7 +439,7 @@
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:8</SourceLocation>
+                    <SourceLocation>/daqfs/home/hanjie/Desktop/GEp/SBS_GEp_trigger/GEp_trigger/solution1/directives.tcl:7</SourceLocation>
                 </SummaryOfViolations>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -10534,7 +10534,7 @@
         <Pragma type="array_partition" location="hcal_cluster_hls.cpp:274" status="valid" parentFunction="find_cluster" variable="prehits" isDirective="0" options="variable=prehits dim=1 type=complete"/>
         <Pragma type="array_partition" location="hcal_cluster_hls.cpp:275" status="valid" parentFunction="find_cluster" variable="curhits" isDirective="0" options="variable=curhits dim=1 type=complete"/>
         <Pragma type="array_partition" location="hcal_cluster_hls.cpp:276" status="valid" parentFunction="find_cluster" variable="afthits" isDirective="0" options="variable=afthits dim=1 type=complete"/>
-        <Pragma type="pipeline" location="GEp_trigger/solution1/directives.tcl:8" status="valid" parentFunction="hcal_cluster_hls" variable="" isDirective="1" options="II=1 style=flp"/>
+        <Pragma type="pipeline" location="GEp_trigger/solution1/directives.tcl:7" status="valid" parentFunction="hcal_cluster_hls" variable="" isDirective="1" options="II=1 style=flp"/>
     </PragmaReport>
 </profile>
 

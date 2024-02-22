@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'hcal_cluster_hls'
 ================================================================
 + General Information: 
-    * Date:           Mon Feb 19 14:12:53 2024
+    * Date:           Wed Feb 21 11:20:25 2024
     * Version:        2023.2 (Build 4023990 on Oct 11 2023)
     * Project:        GEp_trigger
     * Solution:       solution1 (Vivado IP Flow Target)
@@ -9899,7 +9899,7 @@
 | array_partition | variable=prehits dim=1 type=complete               | hcal_cluster_hls.cpp:274 in find_cluster, prehits                  |
 | array_partition | variable=curhits dim=1 type=complete               | hcal_cluster_hls.cpp:275 in find_cluster, curhits                  |
 | array_partition | variable=afthits dim=1 type=complete               | hcal_cluster_hls.cpp:276 in find_cluster, afthits                  |
-| pipeline        | II=1 style=flp                                     | GEp_trigger/solution1/directives.tcl:8 in hcal_cluster_hls         |
+| pipeline        | II=1 style=flp                                     | GEp_trigger/solution1/directives.tcl:7 in hcal_cluster_hls         |
 +-----------------+----------------------------------------------------+--------------------------------------------------------------------+
 
 
