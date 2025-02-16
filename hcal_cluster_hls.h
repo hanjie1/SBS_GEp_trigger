@@ -83,7 +83,7 @@ void hcal_cluster_hls(
     hls::stream<cluster_all_t> (&s_cluster_all)[4]
 );
 
-fiber_bins_t FiberOut(cluster_all_t allc[4], ap_uint<16> cluster_threshold);
+fiber_bins_t FiberOut(cluster_all_t allc[4], ap_uint<16> cluster_threshold[24][12]);
 ap_uint<5> Find_block(ap_uint<9> ch, ap_uint<1> dim);
 
 ap_uint<9> Find_channel(ap_uint<5> nx, ap_uint<4> ny);

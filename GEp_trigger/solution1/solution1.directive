@@ -11,6 +11,11 @@
                 <option name="name" value="hcal_cluster_hls"/>
             </pragma>
         </directive>
+        <directive functionName="hcal_cluster_hls" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="hcal_cluster_hls"/>
+            </pragma>
+        </directive>
     </sourceFile>
 </AutoPilot:ProjectResources>
 

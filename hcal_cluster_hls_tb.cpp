@@ -10,11 +10,15 @@ int main(int argc, char *argv[])
 
   ap_uint<3> hit_dt = 3;
   ap_uint<13> seed_threshold = 4000;
-  ap_uint<16> cluster_threshold = 6000;
+  ap_uint<16> cluster_threshold[24][12];
   hls::stream<fadc_hits_vxs> s_fadc_hits_vxs;
   hls::stream<fadc_hits_fiber> s_fadc_hits_fiber;
   hls::stream<fiber_bins_t> s_fiberout;
   hls::stream<cluster_all_t> s_cluster_all[4];
+
+  for(int nr=0; nr<24; nr++)
+   for(int nc=0; nc<12; nc++)
+       cluster_threshold[nr][nc]=6000;
 
   int nframe=6;
   int ii=0;
@@ -92,11 +96,11 @@ int main(int argc, char *argv[])
   nn=0;
   while(!s_fiberout.empty()){
      fiber_bins_t ff = s_fiberout.read();
-     for(int ii=0; ii<128; ii++){
-         if(ff.bins[ii].valid==1){
-            int tmpt = ff.bins[ii].t.to_uint()*4+(nn-1)*8*4;
+     for(int ii=0; ii<55; ii++){
+         if(ff.bins[ii].t>0){
+            int tmpt = ff.bins[ii].t.to_uint();
 
-            printf("Fiber out at frame %d: ch=%d, t=%d\n",nn,ii,tmpt);
+            printf("Fiber out at frame %d: ch=%d, t=0x%x\n",nn,ii,tmpt);
          }
      }
      nn++;

@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="hcal_cluster_hls" name="GEp_trigger" projectType="C/C++">
+<project xmlns="com.autoesl.autopilot.project" name="GEp_trigger" top="hcal_cluster_hls" projectType="C/C++">
     <includePaths/>
     <libraryPaths/>
     <Simulation>

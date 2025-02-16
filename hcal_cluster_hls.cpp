@@ -156,8 +156,8 @@ void hcal_cluster_hls(
   printf("nclust: %d\n",nclust);
  
   for(ch=0; ch<55; ch++){
-     if(fiberout[ch].t>0)
-        printf("fiber out: ch=%d, t=0x%x\n",ch,fiberout[ch].t);
+     if(fiberout.bins[ch].t>0)
+        printf("fiber out: ch=%d, t=0x%x\n",ch,fiberout.bins[ch].t);
   } 
 #endif
   
@@ -171,6 +171,7 @@ fiber_bins_t FiberOut(cluster_all_t allc[4], ap_uint<16> cluster_threshold[24][1
 #pragma HLS ARRAY_PARTITION variable=allc[1].c dim=1 type=complete
 #pragma HLS ARRAY_PARTITION variable=allc[2].c dim=1 type=complete
 #pragma HLS ARRAY_PARTITION variable=allc[3].c dim=1 type=complete
+#pragma HLS ARRAY_PARTITION variable=cluster_threshold dim=0 type=complete
 
   fiber_bins_t allf;
 #pragma HLS ARRAY_PARTITION variable=allf.bins dim=1 type=complete
@@ -195,9 +196,9 @@ fiber_bins_t FiberOut(cluster_all_t allc[4], ap_uint<16> cluster_threshold[24][1
  
       ap_uint<5> tmprow = block_map[ch].nx;
       ap_uint<5> tmpcol = block_map[ch].ny;
-      ap_uint<6> tmpbin = fiber_map[tmprow][tmpcol];
+      ap_uint<6> tmpbin = fiber_map[tmprow-1][tmpcol-1];
 
-     if( tmpc.e>cluster_threshold[tmprow][tmpcol] && tmpbin>0){
+     if( tmpc.e>cluster_threshold[tmprow-1][tmpcol-1] && tmpbin>0){
          allf.bins[tmpbin-1].t[tmpc.t] = 1;
      }
   }

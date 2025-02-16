@@ -1,2 +1,3 @@
 # SBS GEp trigger
-use Vivad 2023.2 to synthesize
+use Vivado 2023.2 to synthesize
+doesn't work with Vivado 2023.1
