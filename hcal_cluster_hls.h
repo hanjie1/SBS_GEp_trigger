@@ -44,13 +44,12 @@ typedef struct
 
 typedef struct
 {
-  ap_uint<3> t;
-  ap_uint<1> valid;
+  ap_uint<8> t;
 } bin_t;
 
 typedef struct
 {
-  bin_t bins[128];
+  bin_t bins[55];
 } fiber_bins_t;
 
 
@@ -77,7 +76,7 @@ typedef struct
 void hcal_cluster_hls(
     ap_uint<3> hit_dt,
     ap_uint<13> seed_threshold,
-    ap_uint<16> cluster_threshold,
+    ap_uint<16> cluster_threshold[24][12],
     hls::stream<fadc_hits_vxs> &s_fadc_hits_vxs,
     hls::stream<fadc_hits_fiber> &s_fadc_hits_fiber,
     hls::stream<fiber_bins_t> &s_fiberout,
